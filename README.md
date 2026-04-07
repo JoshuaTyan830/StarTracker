@@ -1,4 +1,4 @@
-# [StarTrack：歷年繁星推薦數據分析與落點分析平台]
+# [StarTracker：歷年繁星推薦數據分析與落點分析平台]
 
 ## Proposal Report
 
