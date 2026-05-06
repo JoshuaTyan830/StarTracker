@@ -40,3 +40,13 @@ venv/
 
 # Node.js
 node_modules/
+
+# StarTracker Raw Data
+# 忽略所有下載的 PDF 簡章，避免倉庫過大
+data/**/*.pdf
+
+# 忽略舊版放在 data 根目錄的 json (我們現在都放 cleaned_data 了)
+data/*.json
+
+# 如果你有下載大考中心的原始 excel，也可以忽略
+data/gsat_stats/*.xls*
