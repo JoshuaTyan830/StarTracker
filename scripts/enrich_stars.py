@@ -4,7 +4,7 @@ import re
 import os
 
 # ================= 配置區 =================
-YEAR = "115"
+YEAR = "112"
 MAPPING_FILE = f"../data/mappings/mapping_{YEAR}.xlsx"
 JSON_FILE = f"../cleaned_data/{YEAR}_all_stars.json"
 # ==========================================
@@ -55,8 +55,29 @@ def enrich_data():
     # 3. 讀取並更新原本的 JSON 檔
     print(f"讀取原始 JSON: {JSON_FILE} ...")
     with open(JSON_FILE, 'r', encoding='utf-8') as f:
-        stars_data = json.load(f)
+        raw_stars_data = json.load(f)
         
+    # ✨ 修正後的去重邏輯：使用「代碼 + 系名」當作複合鍵
+    deduped_dict = {}
+    for dept in raw_stars_data:
+        d_id = dept.get("dept_id")
+        d_name = dept.get("dept_name", "") # 抓取系所名稱
+        
+        if not d_id:
+            continue
+            
+        # 組合出獨一無二的 Key，例如 "00151_森林環境暨資源學系【外加】"
+        unique_key = f"{d_id}_{d_name}"
+        
+        # 用 unique_key 來判斷是否重複
+        if unique_key not in deduped_dict:
+            deduped_dict[unique_key] = dept
+
+    # 把去重後的乾淨資料轉回陣列
+    stars_data = list(deduped_dict.values())
+    print(f"🧹 去重完成：從 {len(raw_stars_data)} 筆原始資料中，提煉出 {len(stars_data)} 筆唯一校系。")
+
+    # 4. 開始縫合學群資訊
     updated_count = 0
     missing_depts = [] # 用來記錄找不到學群的孤兒校系
     
@@ -73,7 +94,7 @@ def enrich_data():
             dept["max_choices"] = "未知"
             missing_depts.append(d_id)
             
-    # 4. 將注入完成的資料寫回 JSON
+    # 5. 將注入完成的資料寫回 JSON
     with open(JSON_FILE, 'w', encoding='utf-8') as f:
         json.dump(stars_data, f, ensure_ascii=False, indent=4)
         
