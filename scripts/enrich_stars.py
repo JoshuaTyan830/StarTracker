@@ -1,107 +1,169 @@
-import pandas as pd
+"""Enrich v1 star data with mapping metadata (group, school name, etc.)."""
+import argparse
 import json
 import re
-import os
 
-# ================= 配置區 =================
-YEAR = "106"
-MAPPING_FILE = f"../data/mappings/mapping_114.xlsx"
-JSON_FILE = f"../cleaned_data/{YEAR}_all_stars.json"
-# ==========================================
+import pandas as pd
 
-def enrich_data():
-    print(f"🌟 開始進行 {YEAR} 年度資料縫合作業 🌟")
-    
-    # 1. 讀取你整理的 Mapping Excel
-    print(f"讀取 Mapping 檔案: {MAPPING_FILE} ...")
-    try:
-        df = pd.read_excel(MAPPING_FILE)
-    except Exception as e:
-        print(f"⚠️ 讀取 Mapping 檔案失敗: {e}")
-        return
+from pipeline_config import MAPPING_FILE, v1_path
 
+REFERENCE_YEARS = ["115", "114"]
+
+
+def load_mapping() -> dict[str, dict]:
+    df = pd.read_excel(MAPPING_FILE)
     mapping_dict = {}
-    
-    # 2. 掃描 Excel 建立對照表
-    for index, row in df.iterrows():
-        # 把這一列的所有格子轉成字串陣列，並去除前後空白
+
+    for _, row in df.iterrows():
         values_list = [str(x).strip() for x in row.values]
         row_str = " ".join(values_list)
-        
-        # 抓取 (00101) 裡的 5 碼校系代碼
-        match = re.search(r'\((\d{5})\)', row_str)
-        if match:
-            dept_id = match.group(1)
-            
-            # 抓取學群類別
-            group_match = re.search(r'(第[一二三四五六七八]類學群|不分學群)', row_str)
-            group_name = group_match.group(1) if group_match else "未知學群"
-            
-            # 抓取志願數：利用你整理的乾淨格式，尋找在 row 裡面合理的數字
-            choices = "未知"
-            # 反向掃描這列，第一個介於 1~30 的純數字通常就是志願數
-            for v in reversed(values_list):
-                if v.isdigit() and 0 < int(v) <= 30:
-                    choices = v
-                    break
-            
-            mapping_dict[dept_id] = {
-                "group": group_name,
-                "max_choices": choices
-            }
 
-    print(f"✅ 成功從 Excel 萃取出 {len(mapping_dict)} 筆校系對照資料！")
-    
-    # 3. 讀取並更新原本的 JSON 檔
-    print(f"讀取原始 JSON: {JSON_FILE} ...")
-    with open(JSON_FILE, 'r', encoding='utf-8') as f:
-        raw_stars_data = json.load(f)
-        
-    # ✨ 修正後的去重邏輯：使用「代碼 + 系名」當作複合鍵
-    deduped_dict = {}
-    for dept in raw_stars_data:
-        d_id = dept.get("dept_id")
-        d_name = dept.get("dept_name", "") # 抓取系所名稱
-        
-        if not d_id:
+        match = re.search(r"\((\d{5})\)", row_str)
+        if not match:
             continue
-            
-        # 組合出獨一無二的 Key，例如 "00151_森林環境暨資源學系【外加】"
-        unique_key = f"{d_id}_{d_name}"
-        
-        # 用 unique_key 來判斷是否重複
-        if unique_key not in deduped_dict:
-            deduped_dict[unique_key] = dept
 
-    # 把去重後的乾淨資料轉回陣列
-    stars_data = list(deduped_dict.values())
-    print(f"🧹 去重完成：從 {len(raw_stars_data)} 筆原始資料中，提煉出 {len(stars_data)} 筆唯一校系。")
+        dept_id = match.group(1)
+        first_col = str(row.iloc[0]).strip()
+        school_name = first_col.split("\n")[0].strip() if "\n" in first_col else ""
 
-    # 4. 開始縫合學群資訊
-    updated_count = 0
-    missing_depts = [] # 用來記錄找不到學群的孤兒校系
-    
+        group_match = re.search(r"(第[一二三四五六七八]類學群|不分學群)", row_str)
+        group_name = group_match.group(1) if group_match else None
+
+        choices = None
+        for value in reversed(values_list):
+            if value.isdigit() and 0 < int(value) <= 30:
+                choices = int(value)
+                break
+
+        mapping_dict[dept_id] = {
+            "group": group_name,
+            "max_choices": choices,
+            "school_name": school_name,
+        }
+
+    return mapping_dict
+
+
+def load_reference_groups() -> dict[str, dict]:
+    """Fallback groups from recently enriched v1 files."""
+    reference = {}
+    for year in REFERENCE_YEARS:
+        path = v1_path(year)
+        if not path.exists():
+            continue
+        with path.open(encoding="utf-8") as f:
+            data = json.load(f)
+        for dept in data:
+            dept_id = dept.get("dept_id")
+            group = dept.get("group")
+            if not dept_id or group in (None, "未知", "未知學群"):
+                continue
+            max_choices = dept.get("max_choices")
+            if isinstance(max_choices, str) and max_choices.isdigit():
+                max_choices = int(max_choices)
+            reference[dept_id] = {
+                "group": group,
+                "max_choices": max_choices,
+                "school_name": dept.get("school_name"),
+            }
+    return reference
+
+
+def dedupe_departments(raw_data: list[dict]) -> list[dict]:
+    deduped = {}
+    for dept in raw_data:
+        dept_id = dept.get("dept_id")
+        dept_name = dept.get("dept_name", "")
+        if not dept_id:
+            continue
+        unique_key = f"{dept_id}_{dept_name}"
+        if unique_key not in deduped:
+            deduped[unique_key] = dept
+    return list(deduped.values())
+
+
+def enrich_year(year: str) -> dict:
+    json_file = v1_path(year)
+    print(f"🌟 Enriching {year} → {json_file}")
+
+    mapping_dict = load_mapping()
+    reference_groups = load_reference_groups()
+    print(f"  mapping entries: {len(mapping_dict)}, reference entries: {len(reference_groups)}")
+
+    with json_file.open(encoding="utf-8") as f:
+        raw_data = json.load(f)
+
+    stars_data = dedupe_departments(raw_data)
+    print(f"  deduped: {len(raw_data)} → {len(stars_data)}")
+
+    mapped_count = 0
+    inferred_count = 0
+    unknown_count = 0
+
     for dept in stars_data:
-        d_id = dept["dept_id"]
-        if d_id in mapping_dict:
-            # 成功對應，注入新屬性
-            dept["group"] = mapping_dict[d_id]["group"]
-            dept["max_choices"] = mapping_dict[d_id]["max_choices"]
-            updated_count += 1
+        dept_id = dept["dept_id"]
+        dept_name = dept.get("dept_name", "")
+        dept["is_extra_quota"] = "【外加】" in dept_name
+
+        school_id = dept_id[:3] if len(dept_id) >= 3 else dept.get("school_id", "")
+
+        if dept_id in mapping_dict:
+            info = mapping_dict[dept_id]
+            dept["group"] = info["group"]
+            dept["max_choices"] = info["max_choices"]
+            dept["school_name"] = info["school_name"]
+            dept["group_source"] = "mapping_114"
+            mapped_count += 1
+        elif dept_id in reference_groups:
+            info = reference_groups[dept_id]
+            dept["group"] = info["group"]
+            dept["max_choices"] = info["max_choices"]
+            dept["school_name"] = info.get("school_name")
+            dept["group_source"] = "inferred_from_114"
+            inferred_count += 1
         else:
-            # 對應失敗的防呆機制
-            dept["group"] = "未知"
-            dept["max_choices"] = "未知"
-            missing_depts.append(d_id)
-            
-    # 5. 將注入完成的資料寫回 JSON
-    with open(JSON_FILE, 'w', encoding='utf-8') as f:
-        json.dump(stars_data, f, ensure_ascii=False, indent=4)
-        
-    print(f"🎉 縫合完成！共更新了 {updated_count} 筆校系的學群與志願數資訊。")
-    if missing_depts:
-        print(f"⚠️ 警告：有 {len(missing_depts)} 個校系在 PDF 中，但在 Excel 裡找不到對應代碼。")
-        print(f"   前幾筆未知的代碼為: {missing_depts[:5]}")
+            dept["group"] = None
+            dept["max_choices"] = None
+            dept["school_name"] = None
+            dept["group_source"] = "unknown"
+            unknown_count += 1
+
+        if not dept.get("school_name") and school_id:
+            for other_id, info in mapping_dict.items():
+                if other_id.startswith(school_id) and info.get("school_name"):
+                    dept["school_name"] = info["school_name"]
+                    break
+
+    with json_file.open("w", encoding="utf-8") as f:
+        json.dump(stars_data, f, ensure_ascii=False, indent=2)
+
+    print(
+        f"  ✅ mapped={mapped_count}, inferred={inferred_count}, unknown={unknown_count}"
+    )
+    return {
+        "year": year,
+        "total": len(stars_data),
+        "mapped": mapped_count,
+        "inferred": inferred_count,
+        "unknown": unknown_count,
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Enrich v1 star data with mapping metadata")
+    parser.add_argument("--year", help="Academic year (e.g. 115)")
+    parser.add_argument("--all", action="store_true", help="Process years 106-115")
+    args = parser.parse_args()
+
+    from pipeline_config import ALL_YEARS
+
+    years = ALL_YEARS if args.all else ([args.year] if args.year else [])
+    if not years:
+        parser.error("Specify --year or --all")
+
+    for year in years:
+        enrich_year(year)
+
 
 if __name__ == "__main__":
-    enrich_data()
+    main()

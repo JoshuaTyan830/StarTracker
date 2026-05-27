@@ -1,0 +1,1357 @@
+[
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00101",
+    "dept_name": "中國文學系",
+    "is_extra_quota": false,
+    "quota": 6,
+    "admitted_total": 6,
+    "admitted_round1": 5,
+    "admitted_round2": 1,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 12,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "頂標",
+        "min_level": 13
+      },
+      {
+        "subject": "英文",
+        "standard": "前標",
+        "min_level": 11
+      },
+      {
+        "subject": "數學A",
+        "standard": "均標",
+        "min_level": 8
+      },
+      {
+        "subject": "數學B",
+        "standard": "均標",
+        "min_level": 5
+      },
+      {
+        "subject": "社會",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "--",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": {
+          "type": "percentile",
+          "value": 4.0,
+          "raw": "4%"
+        },
+        "round2": {
+          "type": "percentile",
+          "value": 1.0,
+          "raw": "1%"
+        }
+      },
+      {
+        "order": 2,
+        "item": "學測國文",
+        "kind": "gsat_single",
+        "subjects": [
+          "國文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 3,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 4,
+        "item": "國語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "國語文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 5,
+        "item": "英語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "英語文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 6,
+        "item": "學測社會",
+        "kind": "gsat_single",
+        "subjects": [
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "歷史學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "歷史"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  },
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00102",
+    "dept_name": "外國語文學系",
+    "is_extra_quota": false,
+    "quota": 15,
+    "admitted_total": 15,
+    "admitted_round1": 13,
+    "admitted_round2": 2,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 12,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "英文",
+        "standard": "頂標",
+        "min_level": 13
+      },
+      {
+        "subject": "數學A",
+        "standard": "均標",
+        "min_level": 8
+      },
+      {
+        "subject": "數學B",
+        "standard": "均標",
+        "min_level": 5
+      },
+      {
+        "subject": "社會",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "A級",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": {
+          "type": "percentile",
+          "value": 19.0,
+          "raw": "19%"
+        },
+        "round2": {
+          "type": "percentile",
+          "value": 2.0,
+          "raw": "2%"
+        }
+      },
+      {
+        "order": 2,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": {
+          "type": "level_sum",
+          "value": 15,
+          "raw": "15"
+        }
+      },
+      {
+        "order": 3,
+        "item": "學測國文",
+        "kind": "gsat_single",
+        "subjects": [
+          "國文"
+        ],
+        "round1": null,
+        "round2": {
+          "type": "level_sum",
+          "value": 15,
+          "raw": "15"
+        }
+      },
+      {
+        "order": 4,
+        "item": "英語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "英語文"
+        ],
+        "round1": null,
+        "round2": {
+          "type": "percentile",
+          "value": 1.0,
+          "raw": "1%"
+        }
+      },
+      {
+        "order": 5,
+        "item": "國語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "國語文"
+        ],
+        "round1": null,
+        "round2": {
+          "type": "percentile",
+          "value": 1.0,
+          "raw": "1%"
+        }
+      },
+      {
+        "order": 6,
+        "item": "學測社會",
+        "kind": "gsat_single",
+        "subjects": [
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "歷史學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "歷史"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  },
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00103",
+    "dept_name": "歷史學系",
+    "is_extra_quota": false,
+    "quota": 6,
+    "admitted_total": 6,
+    "admitted_round1": 2,
+    "admitted_round2": 4,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 12,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "英文",
+        "standard": "前標",
+        "min_level": 11
+      },
+      {
+        "subject": "數學A",
+        "standard": "均標",
+        "min_level": 8
+      },
+      {
+        "subject": "數學B",
+        "standard": "均標",
+        "min_level": 5
+      },
+      {
+        "subject": "社會",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "--",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": {
+          "type": "percentile",
+          "value": 4.0,
+          "raw": "4%"
+        },
+        "round2": {
+          "type": "percentile",
+          "value": 4.0,
+          "raw": "4%"
+        }
+      },
+      {
+        "order": 2,
+        "item": "學測國英社",
+        "kind": "gsat_sum",
+        "subjects": [
+          "國文",
+          "英文",
+          "社會"
+        ],
+        "round1": null,
+        "round2": {
+          "type": "level_sum",
+          "value": 42,
+          "raw": "42"
+        }
+      },
+      {
+        "order": 3,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 4,
+        "item": "學測社會",
+        "kind": "gsat_single",
+        "subjects": [
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 5,
+        "item": "學測國文",
+        "kind": "gsat_single",
+        "subjects": [
+          "國文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 6,
+        "item": "歷史學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "歷史"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "國語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "國語文"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  },
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00104",
+    "dept_name": "哲學系",
+    "is_extra_quota": false,
+    "quota": 4,
+    "admitted_total": 4,
+    "admitted_round1": 1,
+    "admitted_round2": 3,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 12,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "英文",
+        "standard": "前標",
+        "min_level": 11
+      },
+      {
+        "subject": "數學A",
+        "standard": "前標",
+        "min_level": 10
+      },
+      {
+        "subject": "數學B",
+        "standard": "前標",
+        "min_level": 9
+      },
+      {
+        "subject": "社會",
+        "standard": "均標",
+        "min_level": 10
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "--",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": {
+          "type": "percentile",
+          "value": 1.0,
+          "raw": "1%"
+        },
+        "round2": {
+          "type": "percentile",
+          "value": 2.0,
+          "raw": "2%"
+        }
+      },
+      {
+        "order": 2,
+        "item": "學測國英社",
+        "kind": "gsat_sum",
+        "subjects": [
+          "國文",
+          "英文",
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 3,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 4,
+        "item": "學測國文",
+        "kind": "gsat_single",
+        "subjects": [
+          "國文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 5,
+        "item": "學測社會",
+        "kind": "gsat_single",
+        "subjects": [
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 6,
+        "item": "英語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "英語文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "數學學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "數學"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  },
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00105",
+    "dept_name": "人類學系",
+    "is_extra_quota": false,
+    "quota": 8,
+    "admitted_total": 8,
+    "admitted_round1": 4,
+    "admitted_round2": 4,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 3,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "英文",
+        "standard": "前標",
+        "min_level": 11
+      },
+      {
+        "subject": "數學A",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "數學B",
+        "standard": "均標",
+        "min_level": 5
+      },
+      {
+        "subject": "社會",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "B級",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": {
+          "type": "percentile",
+          "value": 6.0,
+          "raw": "6%"
+        },
+        "round2": {
+          "type": "percentile",
+          "value": 3.0,
+          "raw": "3%"
+        }
+      },
+      {
+        "order": 2,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 3,
+        "item": "學測社會",
+        "kind": "gsat_single",
+        "subjects": [
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 4,
+        "item": "學測國英數B社",
+        "kind": "gsat_sum",
+        "subjects": [
+          "國文",
+          "英文",
+          "數學B",
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 5,
+        "item": "英語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "英語文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 6,
+        "item": "學測國文",
+        "kind": "gsat_single",
+        "subjects": [
+          "國文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "歷史學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "歷史"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  },
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00105",
+    "dept_name": "人類學系【外加】",
+    "is_extra_quota": true,
+    "quota": 1,
+    "admitted_total": 0,
+    "admitted_round1": 0,
+    "admitted_round2": null,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 3,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "英文",
+        "standard": "前標",
+        "min_level": 11
+      },
+      {
+        "subject": "數學A",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "數學B",
+        "standard": "均標",
+        "min_level": 5
+      },
+      {
+        "subject": "社會",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "B級",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 2,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 3,
+        "item": "學測社會",
+        "kind": "gsat_single",
+        "subjects": [
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 4,
+        "item": "學測國英數B社",
+        "kind": "gsat_sum",
+        "subjects": [
+          "國文",
+          "英文",
+          "數學B",
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 5,
+        "item": "英語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "英語文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 6,
+        "item": "學測國文",
+        "kind": "gsat_single",
+        "subjects": [
+          "國文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "歷史學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "歷史"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  },
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00106",
+    "dept_name": "圖書資訊學系",
+    "is_extra_quota": false,
+    "quota": 7,
+    "admitted_total": 7,
+    "admitted_round1": 7,
+    "admitted_round2": null,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 12,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "英文",
+        "standard": "前標",
+        "min_level": 11
+      },
+      {
+        "subject": "數學A",
+        "standard": "均標",
+        "min_level": 8
+      },
+      {
+        "subject": "數學B",
+        "standard": "均標",
+        "min_level": 5
+      },
+      {
+        "subject": "社會",
+        "standard": "均標",
+        "min_level": 10
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "--",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": {
+          "type": "percentile",
+          "value": 2.0,
+          "raw": "2%"
+        },
+        "round2": null
+      },
+      {
+        "order": 2,
+        "item": "國語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "國語文"
+        ],
+        "round1": {
+          "type": "percentile",
+          "value": 1.0,
+          "raw": "1%"
+        },
+        "round2": null
+      },
+      {
+        "order": 3,
+        "item": "英語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "英語文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 4,
+        "item": "學測國英社",
+        "kind": "gsat_sum",
+        "subjects": [
+          "國文",
+          "英文",
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 5,
+        "item": "學測國文",
+        "kind": "gsat_single",
+        "subjects": [
+          "國文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 6,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "數學學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "數學"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  },
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00107",
+    "dept_name": "日本語文學系",
+    "is_extra_quota": false,
+    "quota": 7,
+    "admitted_total": 7,
+    "admitted_round1": 6,
+    "admitted_round2": 1,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 12,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "英文",
+        "standard": "前標",
+        "min_level": 11
+      },
+      {
+        "subject": "數學A",
+        "standard": "均標",
+        "min_level": 8
+      },
+      {
+        "subject": "數學B",
+        "standard": "均標",
+        "min_level": 5
+      },
+      {
+        "subject": "社會",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "--",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": {
+          "type": "percentile",
+          "value": 6.0,
+          "raw": "6%"
+        },
+        "round2": {
+          "type": "percentile",
+          "value": 2.0,
+          "raw": "2%"
+        }
+      },
+      {
+        "order": 2,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 3,
+        "item": "學測國文",
+        "kind": "gsat_single",
+        "subjects": [
+          "國文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 4,
+        "item": "學測社會",
+        "kind": "gsat_single",
+        "subjects": [
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 5,
+        "item": "學測國英社",
+        "kind": "gsat_sum",
+        "subjects": [
+          "國文",
+          "英文",
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 6,
+        "item": "英語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "英語文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "國語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "國語文"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  },
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00108",
+    "dept_name": "戲劇學系",
+    "is_extra_quota": false,
+    "quota": 4,
+    "admitted_total": 4,
+    "admitted_round1": 2,
+    "admitted_round2": 2,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 12,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "英文",
+        "standard": "前標",
+        "min_level": 11
+      },
+      {
+        "subject": "數學A",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "數學B",
+        "standard": "均標",
+        "min_level": 5
+      },
+      {
+        "subject": "社會",
+        "standard": "均標",
+        "min_level": 10
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "--",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": {
+          "type": "percentile",
+          "value": 15.0,
+          "raw": "15%"
+        },
+        "round2": {
+          "type": "percentile",
+          "value": 2.0,
+          "raw": "2%"
+        }
+      },
+      {
+        "order": 2,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": {
+          "type": "level_sum",
+          "value": 14,
+          "raw": "14"
+        }
+      },
+      {
+        "order": 3,
+        "item": "學測國文",
+        "kind": "gsat_single",
+        "subjects": [
+          "國文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 4,
+        "item": "學測國英數B社",
+        "kind": "gsat_sum",
+        "subjects": [
+          "國文",
+          "英文",
+          "數學B",
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 5,
+        "item": "學測數B",
+        "kind": "gsat_single",
+        "subjects": [
+          "數學B"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 6,
+        "item": "英語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "英語文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "國語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "國語文"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  },
+  {
+    "schema_version": 2,
+    "year": 115,
+    "school_id": "001",
+    "school_name": "國立臺灣大學",
+    "dept_id": "00109",
+    "dept_name": "地理環境資源學系",
+    "is_extra_quota": false,
+    "quota": 5,
+    "admitted_total": 5,
+    "admitted_round1": 1,
+    "admitted_round2": 4,
+    "group": "第一類學群",
+    "group_source": "mapping_114",
+    "max_choices": 12,
+    "requirements": [
+      {
+        "subject": "國文",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英文",
+        "standard": "前標",
+        "min_level": 11
+      },
+      {
+        "subject": "數學A",
+        "standard": "頂標",
+        "min_level": 12
+      },
+      {
+        "subject": "數學B",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "社會",
+        "standard": "前標",
+        "min_level": 12
+      },
+      {
+        "subject": "自然",
+        "standard": "--",
+        "min_level": null
+      },
+      {
+        "subject": "英聽",
+        "standard": "--",
+        "min_level": null
+      }
+    ],
+    "practical_reqs": [],
+    "criteria": [
+      {
+        "order": 1,
+        "item": "在校學業",
+        "kind": "school_rank",
+        "subjects": [],
+        "round1": {
+          "type": "percentile",
+          "value": 8.0,
+          "raw": "8%"
+        },
+        "round2": {
+          "type": "percentile",
+          "value": 13.0,
+          "raw": "13%"
+        }
+      },
+      {
+        "order": 2,
+        "item": "學測英數A社",
+        "kind": "gsat_sum",
+        "subjects": [
+          "英文",
+          "數學A",
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 3,
+        "item": "學測英文",
+        "kind": "gsat_single",
+        "subjects": [
+          "英文"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 4,
+        "item": "學測數A",
+        "kind": "gsat_single",
+        "subjects": [
+          "數學A"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 5,
+        "item": "學測社會",
+        "kind": "gsat_single",
+        "subjects": [
+          "社會"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 6,
+        "item": "地理學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "地理"
+        ],
+        "round1": null,
+        "round2": null
+      },
+      {
+        "order": 7,
+        "item": "英語文學業",
+        "kind": "subject_grade",
+        "subjects": [
+          "英語文"
+        ],
+        "round1": null,
+        "round2": null
+      }
+    ]
+  }
+]

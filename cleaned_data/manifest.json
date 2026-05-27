@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "years": [
+    "115",
+    "114",
+    "113",
+    "112",
+    "111",
+    "110",
+    "109",
+    "108",
+    "107",
+    "106"
+  ],
+  "generated_at": "2026-05-27T03:16:02Z",
+  "mapping_source": "mapping_114.xlsx",
+  "gsat_stats_file": "gsat_historical_stats.json",
+  "stats": {
+    "106": {
+      "depts": 2943,
+      "unknown_group": 298,
+      "unknown_group_pct": 10.1
+    },
+    "107": {
+      "depts": 2993,
+      "unknown_group": 313,
+      "unknown_group_pct": 10.5
+    },
+    "108": {
+      "depts": 2965,
+      "unknown_group": 255,
+      "unknown_group_pct": 8.6
+    },
+    "109": {
+      "depts": 3024,
+      "unknown_group": 236,
+      "unknown_group_pct": 7.8
+    },
+    "110": {
+      "depts": 3015,
+      "unknown_group": 214,
+      "unknown_group_pct": 7.1
+    },
+    "111": {
+      "depts": 3045,
+      "unknown_group": 198,
+      "unknown_group_pct": 6.5
+    },
+    "112": {
+      "depts": 3018,
+      "unknown_group": 153,
+      "unknown_group_pct": 5.1
+    },
+    "113": {
+      "depts": 3003,
+      "unknown_group": 83,
+      "unknown_group_pct": 2.8
+    },
+    "114": {
+      "depts": 2916,
+      "unknown_group": 0,
+      "unknown_group_pct": 0.0
+    },
+    "115": {
+      "depts": 2839,
+      "unknown_group": 0,
+      "unknown_group_pct": 0.0
+    }
+  }
+}

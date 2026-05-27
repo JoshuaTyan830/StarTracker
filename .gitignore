@@ -50,3 +50,14 @@ data/*.json
 
 # 如果你有下載大考中心的原始 excel，也可以忽略
 data/gsat_stats/*.xls*
+
+# StarTracker cleaned data (large generated files)
+cleaned_data/*_all_stars.json
+cleaned_data/stars/
+frontend/public/data/
+frontend/src/data/
+
+# Keep small tracked artifacts
+!cleaned_data/manifest.json
+!cleaned_data/gsat_historical_stats.json
+!cleaned_data/samples/
