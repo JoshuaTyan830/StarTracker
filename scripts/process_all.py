@@ -6,7 +6,7 @@ import json
 import re
 
 # ================= 配置區 =================
-YEAR = "112"  # 你只要改這個年份，就能處理不同年的資料夾
+YEAR = "106"  # 你只要改這個年份，就能處理不同年的資料夾
 DATA_DIR = f"../data/{YEAR}/"
 OUTPUT_JSON = f"../cleaned_data/{YEAR}_all_stars.json"
 # ==========================================

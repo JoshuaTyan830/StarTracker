@@ -5,10 +5,10 @@ from urllib.parse import urljoin
 import time
 
 # ================= 配置區 =================
-SAVE_DIR = "../data/112/"
+SAVE_DIR = "../data/106/"
 
 # 貼上目標網址
-PAGE_URL = "https://www.cac.edu.tw/cacportal/star_his_report/112/112_result_standard/eight/collegeList_1.php"
+PAGE_URL = "https://www.cac.edu.tw/cacportal/star_his_report/106/106_result_standard/eight/collegeList_1.php"
 
 # ✨ 新增：檔名後綴！
 # 如果是下載 1~7 類，保持空白 ""

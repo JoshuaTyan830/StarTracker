@@ -4,8 +4,8 @@ import re
 import os
 
 # ================= 配置區 =================
-YEAR = "112"
-MAPPING_FILE = f"../data/mappings/mapping_{YEAR}.xlsx"
+YEAR = "106"
+MAPPING_FILE = f"../data/mappings/mapping_114.xlsx"
 JSON_FILE = f"../cleaned_data/{YEAR}_all_stars.json"
 # ==========================================
 
