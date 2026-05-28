@@ -12,49 +12,49 @@
     "107",
     "106"
   ],
-  "generated_at": "2026-05-27T03:16:02Z",
+  "generated_at": "2026-05-28T10:30:18Z",
   "mapping_source": "mapping_114.xlsx",
   "gsat_stats_file": "gsat_historical_stats.json",
   "stats": {
     "106": {
       "depts": 2943,
-      "unknown_group": 298,
-      "unknown_group_pct": 10.1
+      "unknown_group": 179,
+      "unknown_group_pct": 6.1
     },
     "107": {
       "depts": 2993,
-      "unknown_group": 313,
-      "unknown_group_pct": 10.5
+      "unknown_group": 185,
+      "unknown_group_pct": 6.2
     },
     "108": {
       "depts": 2965,
-      "unknown_group": 255,
-      "unknown_group_pct": 8.6
+      "unknown_group": 131,
+      "unknown_group_pct": 4.4
     },
     "109": {
       "depts": 3024,
-      "unknown_group": 236,
-      "unknown_group_pct": 7.8
+      "unknown_group": 100,
+      "unknown_group_pct": 3.3
     },
     "110": {
       "depts": 3015,
-      "unknown_group": 214,
-      "unknown_group_pct": 7.1
+      "unknown_group": 86,
+      "unknown_group_pct": 2.9
     },
     "111": {
       "depts": 3045,
-      "unknown_group": 198,
-      "unknown_group_pct": 6.5
+      "unknown_group": 70,
+      "unknown_group_pct": 2.3
     },
     "112": {
       "depts": 3018,
-      "unknown_group": 153,
-      "unknown_group_pct": 5.1
+      "unknown_group": 46,
+      "unknown_group_pct": 1.5
     },
     "113": {
       "depts": 3003,
-      "unknown_group": 83,
-      "unknown_group_pct": 2.8
+      "unknown_group": 17,
+      "unknown_group_pct": 0.6
     },
     "114": {
       "depts": 2916,

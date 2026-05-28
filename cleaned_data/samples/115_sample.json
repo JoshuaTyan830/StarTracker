@@ -565,7 +565,7 @@
     "admitted_round2": 4,
     "group": "第一類學群",
     "group_source": "mapping_114",
-    "max_choices": 3,
+    "max_choices": 12,
     "requirements": [
       {
         "subject": "國文",

@@ -35,8 +35,21 @@ def build_sample(year: str = "115", count: int = 10) -> None:
     print(f"✅ Wrote sample ({len(sample)} depts) → {out}")
 
 
+ENRICH_PRIORITY_YEARS = ["115", "114"]
+
+
+def order_years_for_enrich(years: list[str]) -> list[str]:
+    """Process recent years first so reference fallback uses up-to-date data."""
+    priority = [y for y in ENRICH_PRIORITY_YEARS if y in years]
+    rest = sorted([y for y in years if y not in priority], key=int, reverse=True)
+    return priority + rest
+
+
 def run_pipeline(years: list[str], start_step: str, skip_process: bool) -> None:
     start_idx = STEPS.index(start_step)
+
+    if start_idx <= STEPS.index("enrich") and len(years) > 1:
+        years = order_years_for_enrich(years)
 
     for year in years:
         if start_idx <= STEPS.index("process") and not skip_process:

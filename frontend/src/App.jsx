@@ -1,23 +1,20 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
+import {
+  buildGroupOptions,
+  countUniqueDepartments,
+  deptRowKey,
+  findDeptInYear,
+  formatCriteriaResult,
+  formatPracticalReq,
+  formatRequirement,
+  getAdmittedTotal,
+  getGroupLabel,
+  getHistoricalData,
+  getQuota,
+  groupBadgeClass,
+} from './lib/deptUtils';
 
 const DEFAULT_YEARS = Array.from({ length: 10 }, (_, i) => String(115 - i));
-
-function formatCriteriaResult(round) {
-  if (!round) return '--';
-  if (typeof round === 'string') return round;
-  return round.raw ?? String(round.value ?? '--');
-}
-
-function formatRequirement(req) {
-  const standard = req.standard ?? '--';
-  if (standard === '--') return null;
-  const level = req.min_level ?? req.score?.replace?.(/[^\d]/g, '');
-  return level ? `${standard} (${level}級分)` : standard;
-}
-
-function getQuota(dept) {
-  return dept.admitted_total ?? dept.admitted ?? dept.quota ?? '-';
-}
 
 async function fetchYearData(year) {
   const res = await fetch(`/data/stars/${year}.json`);
@@ -40,16 +37,25 @@ export default function App() {
   const [selectedYear, setSelectedYear] = useState('115');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGroup, setSelectedGroup] = useState('全部學群');
-  const [selectedDeptId, setSelectedDeptId] = useState(null);
+  const [selectedAnchor, setSelectedAnchor] = useState(null);
 
   const [yearCache, setYearCache] = useState({});
   const [loadError, setLoadError] = useState(null);
+  const [manifestStats, setManifestStats] = useState(null);
   const inflightRef = useRef(new Set());
+  const yearCacheRef = useRef({});
+
+  useEffect(() => {
+    yearCacheRef.current = yearCache;
+  }, [yearCache]);
 
   useEffect(() => {
     fetchManifest().then((manifest) => {
       if (manifest?.years?.length) {
         setAvailableYears(manifest.years.map(String));
+      }
+      if (manifest?.stats) {
+        setManifestStats(manifest.stats);
       }
     });
   }, []);
@@ -82,30 +88,36 @@ export default function App() {
   }, [selectedYear, yearCache]);
 
   useEffect(() => {
-    if (!selectedDeptId) return undefined;
+    if (!selectedAnchor) return undefined;
 
-    const missing = availableYears.filter(
-      (year) => !yearCache[year] && !inflightRef.current.has(year)
-    );
-    if (missing.length === 0) return undefined;
+    const ordered = [...availableYears].sort((a, b) => {
+      if (a === selectedYear) return -1;
+      if (b === selectedYear) return 1;
+      return Number(b) - Number(a);
+    });
 
     let cancelled = false;
 
-    missing.forEach((year) => {
-      inflightRef.current.add(year);
-      fetchYearData(year)
-        .then((data) => {
+    (async () => {
+      for (const year of ordered) {
+        if (cancelled) return;
+        if (yearCacheRef.current[year] || inflightRef.current.has(year)) continue;
+
+        inflightRef.current.add(year);
+        try {
+          const data = await fetchYearData(year);
           if (cancelled) return;
           setYearCache((prev) => ({ ...prev, [year]: data }));
-        })
-        .catch(() => {})
-        .finally(() => {
+        } catch {
+          // ignore background history load errors
+        } finally {
           inflightRef.current.delete(year);
-        });
-    });
+        }
+      }
+    })();
 
     return () => { cancelled = true; };
-  }, [selectedDeptId, availableYears, yearCache]);
+  }, [selectedAnchor, availableYears, selectedYear]);
 
   const currentData = useMemo(
     () => yearCache[selectedYear] || [],
@@ -114,8 +126,21 @@ export default function App() {
 
   const isLoadingSelected = !yearCache[selectedYear] && !loadError;
   const historyLoading = Boolean(
-    selectedDeptId && availableYears.some((year) => !yearCache[year])
+    selectedAnchor && availableYears.some((year) => !yearCache[year])
   );
+
+  const groupOptions = useMemo(
+    () => buildGroupOptions(currentData),
+    [currentData]
+  );
+
+  useEffect(() => {
+    if (selectedGroup !== '全部學群' && !groupOptions.includes(selectedGroup)) {
+      setSelectedGroup('全部學群');
+    }
+  }, [selectedYear, groupOptions, selectedGroup]);
+
+  const unknownGroupPct = manifestStats?.[selectedYear]?.unknown_group_pct ?? 0;
 
   const filteredData = useMemo(() => {
     return currentData.filter((dept) => {
@@ -132,18 +157,19 @@ export default function App() {
     });
   }, [currentData, searchTerm, selectedGroup]);
 
-  const getHistoricalData = (deptId) => {
-    return availableYears
-      .filter((year) => yearCache[year])
-      .sort((a, b) => Number(b) - Number(a))
-      .map((year) => ({
-        year,
-        data: yearCache[year].find((d) => d.dept_id === deptId),
-      }))
-      .filter((item) => item.data);
-  };
+  const uniqueFilteredCount = useMemo(
+    () => countUniqueDepartments(filteredData),
+    [filteredData]
+  );
 
-  const selectedDept = filteredData.find((d) => d.dept_id === selectedDeptId);
+  const historicalData = useMemo(
+    () => getHistoricalData(yearCache, availableYears, selectedAnchor),
+    [yearCache, availableYears, selectedAnchor]
+  );
+
+  const selectedDept = selectedAnchor
+    ? findDeptInYear(currentData, selectedAnchor) ?? selectedAnchor
+    : null;
 
   return (
     <div className="min-h-screen bg-gray-50 p-8 font-sans">
@@ -193,19 +219,26 @@ export default function App() {
             className="p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white min-w-45 cursor-pointer font-medium text-gray-700"
           >
             <option value="全部學群">📚 全部學群</option>
-            <option value="第一類學群">第一類學群 (文法商)</option>
-            <option value="第二類學群">第二類學群 (理工)</option>
-            <option value="第三類學群">第三類學群 (生醫)</option>
-            <option value="第八類學群">第八類學群 (醫牙)</option>
+            {groupOptions.map((group) => (
+              <option key={group} value={group}>
+                {getGroupLabel(group)}
+              </option>
+            ))}
           </select>
         </div>
+
+        {unknownGroupPct > 0 && (
+          <div className="mb-4 p-3 bg-amber-50 border border-amber-200 text-amber-800 rounded-xl text-sm">
+            {selectedYear} 學年度有 {unknownGroupPct}% 校系未能對照學群（顯示為「未知學群」），以全部學群瀏覽仍可搜尋。
+          </div>
+        )}
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="p-4 border-b border-gray-100 bg-gray-50 text-sm font-semibold text-gray-500 flex justify-between">
             <span>
               {isLoadingSelected
                 ? `載入 ${selectedYear} 學年度資料中...`
-                : `找到 ${filteredData.length} 筆校系資料`}
+                : `找到 ${uniqueFilteredCount} 筆校系資料`}
             </span>
             <span className="text-xs text-gray-400">{selectedYear} 學年度</span>
           </div>
@@ -223,20 +256,23 @@ export default function App() {
                 </tr>
               </thead>
               <tbody>
-                {filteredData.slice(0, 100).map((dept) => (
+                {filteredData.map((dept) => (
                   <tr
-                    key={`${dept.dept_id}_${dept.dept_name}`}
-                    onClick={() => setSelectedDeptId(dept.dept_id)}
+                    key={deptRowKey(dept)}
+                    onClick={() => setSelectedAnchor({
+                      school_id: dept.school_id,
+                      school_name: dept.school_name,
+                      dept_id: dept.dept_id,
+                      dept_name: dept.dept_name,
+                      is_extra_quota: dept.is_extra_quota,
+                    })}
                     className="border-b border-gray-50 hover:bg-blue-50 cursor-pointer transition-colors"
                   >
                     <td className="p-4 text-gray-500 font-mono text-sm">{dept.dept_id}</td>
                     <td className="p-4 text-gray-600">{dept.school_name || '未知學校'}</td>
                     <td className="p-4 font-bold text-gray-800">{dept.dept_name}</td>
                     <td className="p-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                        dept.group === '第八類學群' ? 'bg-red-100 text-red-700' :
-                        dept.group ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'
-                      }`}>
+                      <span className={`px-3 py-1 rounded-full text-xs font-bold ${groupBadgeClass(dept.group)}`}>
                         {dept.group || '未知學群'}
                       </span>
                     </td>
@@ -250,20 +286,27 @@ export default function App() {
         </div>
       </div>
 
-      {selectedDeptId && (
+      {selectedAnchor && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50 p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[85vh] overflow-y-auto overflow-hidden flex flex-col">
 
             <div className="p-6 border-b border-gray-100 flex justify-between items-start sticky top-0 bg-white z-10 shadow-sm">
               <div>
-                <div className="text-sm text-blue-600 font-mono font-bold mb-1">{selectedDeptId}</div>
+                <div className="text-sm text-blue-600 font-mono font-bold mb-1">
+                  {selectedDept?.dept_id ?? selectedAnchor.dept_id}
+                  {selectedDept?.dept_id !== selectedAnchor.dept_id && (
+                    <span className="text-gray-400 font-normal ml-2">
+                      （{selectedYear} 學年度代碼）
+                    </span>
+                  )}
+                </div>
                 <h2 className="text-2xl font-bold text-gray-800">
-                  {selectedDept?.school_name || '未知學校'}{' '}
-                  {selectedDept?.dept_name}
+                  {selectedDept?.school_name || selectedAnchor.school_name || '未知學校'}{' '}
+                  {selectedDept?.dept_name || selectedAnchor.dept_name}
                 </h2>
               </div>
               <button
-                onClick={() => setSelectedDeptId(null)}
+                onClick={() => setSelectedAnchor(null)}
                 className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors font-bold"
               >
                 ✕ 關閉
@@ -279,17 +322,25 @@ export default function App() {
               </div>
 
               <div className="space-y-6">
-                {getHistoricalData(selectedDeptId).map((history) => (
+                {historicalData.map((history) => (
                   <div key={history.year} className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
 
                     <div className="bg-gradient-to-r from-blue-600 to-blue-800 px-5 py-3 flex justify-between items-center flex-wrap gap-2">
-                      <span className="text-white font-black text-lg tracking-wider">
-                        {history.year} 學年度
-                      </span>
+                      <div className="text-white">
+                        <span className="font-black text-lg tracking-wider">
+                          {history.year} 學年度
+                        </span>
+                        {history.data.dept_id !== selectedAnchor.dept_id && (
+                          <span className="ml-3 text-blue-200 text-xs font-mono">
+                            {history.data.dept_id}
+                          </span>
+                        )}
+                      </div>
                       <div className="text-blue-100 text-sm font-medium flex gap-4 flex-wrap">
                         <span>招生名額：{getQuota(history.data)}</span>
-                        <span>第一輪錄取：{history.data.admitted_round1 ?? history.data.round1_admitted ?? '-'}</span>
-                        <span>第二輪錄取：{history.data.admitted_round2 ?? history.data.round2_admitted ?? '-'}</span>
+                        <span>錄取人數：{getAdmittedTotal(history.data)}</span>
+                        <span>第一輪：{history.data.admitted_round1 ?? history.data.round1_admitted ?? '-'}</span>
+                        <span>第二輪：{history.data.admitted_round2 ?? history.data.round2_admitted ?? '-'}</span>
                       </div>
                     </div>
 
@@ -312,8 +363,34 @@ export default function App() {
                               </div>
                             );
                           })}
+                          {!history.data.requirements?.some((req) => formatRequirement(req)) && (
+                            <span className="text-sm text-gray-400">無學測檢定門檻（可能僅術科或特殊招生）</span>
+                          )}
                         </div>
                       </div>
+
+                      {history.data.practical_reqs?.length > 0 && (
+                        <div className="mb-5">
+                          <h4 className="text-sm font-bold text-gray-500 mb-2">🎨 術科檢定標準</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {history.data.practical_reqs.map((req, i) => {
+                              const label = formatPracticalReq(req);
+                              if (!label) return null;
+                              return (
+                                <div
+                                  key={i}
+                                  className="px-3 py-1.5 rounded-lg border text-sm flex items-center gap-2 bg-purple-50 border-purple-200 text-purple-700 font-medium"
+                                >
+                                  <span className="font-bold">{req.item}</span>
+                                  <span className="bg-white px-2 py-0.5 rounded text-xs border border-purple-100">
+                                    {label}
+                                  </span>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
 
                       <div>
                         <h4 className="text-sm font-bold text-gray-500 mb-2">🏆 分發比序錄取結果</h4>
@@ -358,7 +435,7 @@ export default function App() {
                   </div>
                 ))}
 
-                {!historyLoading && getHistoricalData(selectedDeptId).length === 0 && (
+                {!historyLoading && historicalData.length === 0 && (
                   <p className="text-gray-500 text-center py-8">找不到此校系的歷年資料</p>
                 )}
               </div>
