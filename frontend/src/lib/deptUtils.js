@@ -3,6 +3,18 @@ export function normalizeDeptName(name) {
   return (name || '').replace(/【外加】/g, '').trim();
 }
 
+/** Compare zero-padded numeric codes (e.g. school 001, dept 00101). */
+export function compareNumericCodes(a, b) {
+  const na = Number(a);
+  const nb = Number(b);
+  if (!Number.isNaN(na) && !Number.isNaN(nb) && na !== nb) {
+    return na - nb;
+  }
+  return String(a ?? '').localeCompare(String(b ?? ''), undefined, {
+    numeric: true,
+  });
+}
+
 /** Standard display order for academic groups. */
 export const GROUP_ORDER = [
   '第一類學群',
@@ -18,16 +30,23 @@ export const GROUP_ORDER = [
 ];
 
 const GROUP_LABELS = {
-  '第一類學群': '第一類學群 (文法商)',
-  '第二類學群': '第二類學群 (理工)',
-  '第三類學群': '第三類學群 (生醫)',
-  '第四類學群': '第四類學群 (建築/design)',
-  '第五類學群': '第五類學群 (藝術)',
-  '第六類學群': '第六類學群 (歷史/geo)',
-  '第七類學群': '第七類學群 (哲學/宗教)',
-  '第八類學群': '第八類學群 (醫牙)',
+  '第一類學群': '第一類學群（文法商）',
+  '第二類學群': '第二類學群（理工）',
+  '第三類學群': '第三類學群（生農）',
+  '第四類學群': '第四類學群（音樂）',
+  '第五類學群': '第五類學群（美術）',
+  '第六類學群': '第六類學群（舞蹈）',
+  '第七類學群': '第七類學群（體育）',
+  '第八類學群': '第八類學群（醫牙）',
   '不分學群': '不分學群',
   '未知學群': '未知學群',
+};
+
+/** Discontinued / renumbered schools not present in mapping or v2 names. */
+export const LEGACY_SCHOOL_NAMES = {
+  '025': '國立陽明大學',
+  '111': '台灣首府大學',
+  '133': '明道大學',
 };
 
 export function getGroupLabel(group) {
@@ -39,6 +58,111 @@ export function buildGroupOptions(departments) {
     departments.map((d) => d.group || '未知學群')
   );
   return GROUP_ORDER.filter((g) => present.has(g));
+}
+
+export function buildSchoolOptions(departments) {
+  const map = new Map();
+  for (const dept of departments) {
+    if (!dept.school_id || map.has(dept.school_id)) continue;
+    map.set(dept.school_id, {
+      school_id: dept.school_id,
+      school_name: dept.school_name || '未知學校',
+    });
+  }
+  return Array.from(map.values()).sort((a, b) =>
+    compareNumericCodes(a.school_id, b.school_id)
+  );
+}
+
+/** Pick the best school_name for an index entry, preferring referenceYear then newest. */
+export function resolveSchoolNameFromEntry(entry, referenceYear) {
+  if (!entry?.years?.length) return null;
+  const ordered = [...entry.years].sort((a, b) => {
+    if (a === referenceYear) return -1;
+    if (b === referenceYear) return 1;
+    return Number(b) - Number(a);
+  });
+  for (const year of ordered) {
+    const name = entry.byYear[year]?.school_name;
+    if (name) return name;
+  }
+  return null;
+}
+
+/**
+ * Build school_id → name from loaded years, static fallbacks, and optional manifest map.
+ * Scans every department row so a name on any dept resolves the whole school.
+ */
+export function buildSchoolNameRegistry(
+  yearCache,
+  availableYears,
+  referenceYear,
+  manifestSchoolNames = {}
+) {
+  const registry = new Map(Object.entries(manifestSchoolNames));
+  for (const [sid, name] of Object.entries(LEGACY_SCHOOL_NAMES)) {
+    if (!registry.has(sid)) registry.set(sid, name);
+  }
+
+  const loadedYears = availableYears.filter((year) => yearCache[year]);
+  const ordered = [...loadedYears].sort((a, b) => {
+    if (a === referenceYear) return -1;
+    if (b === referenceYear) return 1;
+    return Number(b) - Number(a);
+  });
+
+  for (const year of ordered) {
+    for (const dept of yearCache[year]) {
+      const sid = dept.school_id;
+      const name = dept.school_name;
+      if (sid && name && !registry.has(sid)) {
+        registry.set(sid, name);
+      }
+    }
+  }
+
+  for (const year of loadedYears) {
+    for (const dept of yearCache[year]) {
+      const sid = dept.school_id;
+      const name = dept.school_name;
+      if (sid && name && !registry.has(sid)) {
+        registry.set(sid, name);
+      }
+    }
+  }
+
+  return registry;
+}
+
+export function resolveSchoolName(schoolId, schoolNameRegistry, entry, referenceYear) {
+  if (!schoolId) return '未知學校';
+  return (
+    schoolNameRegistry.get(schoolId) ||
+    resolveSchoolNameFromEntry(entry, referenceYear) ||
+    LEGACY_SCHOOL_NAMES[schoolId] ||
+    '未知學校'
+  );
+}
+
+export function buildSchoolOptionsFromIndex(departmentIndex, schoolNameRegistry) {
+  const map = new Map();
+
+  for (const entry of departmentIndex) {
+    if (!entry.school_id || map.has(entry.school_id)) continue;
+    map.set(entry.school_id, {
+      school_id: entry.school_id,
+      school_name: resolveSchoolName(
+        entry.school_id,
+        schoolNameRegistry,
+        entry,
+        null
+      ),
+    });
+  }
+
+  return Array.from(map.values()).sort((a, b) =>
+    compareNumericCodes(a.school_id, b.school_id)
+  );
 }
 
 export function groupBadgeClass(group) {
@@ -55,6 +179,104 @@ export function deptRowKey(dept) {
 /** Identity key treating 一般/外加 as one department. */
 export function deptIdentityKey(dept) {
   return `${dept.school_id}::${normalizeDeptName(dept.dept_name)}`;
+}
+
+/** Index key for unified list (一般/外加 shown as separate rows). */
+export function deptIndexKey(dept) {
+  return `${dept.school_id}::${normalizeDeptName(dept.dept_name)}::${Boolean(dept.is_extra_quota)}`;
+}
+
+export function deptToAnchor(dept) {
+  return {
+    school_id: dept.school_id,
+    school_name: dept.school_name,
+    dept_id: dept.dept_id,
+    dept_name: dept.dept_name,
+    is_extra_quota: dept.is_extra_quota,
+  };
+}
+
+/**
+ * Merge loaded year datasets into a unified department index.
+ * displayDept uses referenceYear when available, otherwise the newest loaded year.
+ */
+export function buildDepartmentIndex(
+  yearCache,
+  availableYears,
+  referenceYear,
+  schoolNameRegistry = new Map()
+) {
+  const map = new Map();
+  const loadedYears = availableYears.filter((year) => yearCache[year]);
+
+  for (const year of loadedYears) {
+    for (const dept of yearCache[year]) {
+      const key = deptIndexKey(dept);
+      let entry = map.get(key);
+      if (!entry) {
+        entry = {
+          key,
+          school_id: dept.school_id,
+          is_extra_quota: Boolean(dept.is_extra_quota),
+          years: [],
+          byYear: {},
+        };
+        map.set(key, entry);
+      }
+      if (!entry.byYear[year]) {
+        entry.years.push(year);
+        entry.byYear[year] = dept;
+      }
+    }
+  }
+
+  return Array.from(map.values())
+    .map((entry) => {
+      entry.years.sort((a, b) => Number(b) - Number(a));
+      const display =
+        entry.byYear[referenceYear] ?? entry.byYear[entry.years[0]];
+      const school_name = resolveSchoolName(
+        entry.school_id,
+        schoolNameRegistry,
+        entry,
+        referenceYear
+      );
+      const enrichedDisplay = { ...display, school_name };
+      return {
+        ...entry,
+        displayDept: enrichedDisplay,
+        anchor: deptToAnchor(enrichedDisplay),
+      };
+    })
+    .sort((a, b) => {
+      const bySchool = compareNumericCodes(a.school_id, b.school_id);
+      if (bySchool !== 0) return bySchool;
+
+      const byDept = compareNumericCodes(
+        a.displayDept.dept_id,
+        b.displayDept.dept_id
+      );
+      if (byDept !== 0) return byDept;
+
+      if (a.is_extra_quota !== b.is_extra_quota) {
+        return a.is_extra_quota ? 1 : -1;
+      }
+      return 0;
+    });
+}
+
+export function getDisplayDeptForYear(entry, referenceYear) {
+  if (!entry) return undefined;
+  return entry.byYear[referenceYear] ?? entry.displayDept;
+}
+
+export function formatYearsCoverage(years, availableYears) {
+  if (!years?.length) return '-';
+  const total = availableYears?.length ?? years.length;
+  if (years.length === total) return `完整 ${total} 年`;
+  const sorted = [...years].sort((a, b) => Number(a) - Number(b));
+  if (years.length === 1) return `${sorted[0]} 年`;
+  return `${sorted[0]}–${sorted[sorted.length - 1]}（${years.length} 年）`;
 }
 
 export function countUniqueDepartments(departments) {

@@ -1,17 +1,66 @@
 """Build manifest.json summarizing normalized star data."""
 import argparse
 import json
+import re
 from datetime import datetime, timezone
+
+import pandas as pd
 
 from pipeline_config import (
     ALL_YEARS,
     GSAT_STATS_FILE,
     MANIFEST_FILE,
+    MAPPING_FILE,
     MAPPING_SOURCE,
     SCHEMA_VERSION,
-    STARS_DIR,
     v2_path,
 )
+
+LEGACY_SCHOOL_NAMES = {
+    "025": "國立陽明大學",
+    "111": "台灣首府大學",
+    "133": "明道大學",
+}
+
+
+def load_mapping_school_names() -> dict[str, str]:
+    df = pd.read_excel(MAPPING_FILE)
+    school_names: dict[str, str] = {}
+
+    for _, row in df.iterrows():
+        row_str = " ".join(str(x).strip() for x in row.values)
+        match = re.search(r"\((\d{5})\)", row_str)
+        if not match:
+            continue
+
+        dept_id = match.group(1)
+        first_col = str(row.iloc[0]).strip()
+        school_name = first_col.split("\n")[0].strip() if "\n" in first_col else ""
+        if school_name and len(dept_id) >= 3:
+            school_names[dept_id[:3]] = school_name
+
+    return school_names
+
+
+def build_school_names(years: list[str]) -> dict[str, str]:
+    names = load_mapping_school_names()
+
+    for year in years:
+        path = v2_path(year)
+        if not path.exists():
+            continue
+        with path.open(encoding="utf-8") as f:
+            data = json.load(f)
+        for dept in data:
+            school_id = dept.get("school_id")
+            school_name = dept.get("school_name")
+            if school_id and school_name and school_id not in names:
+                names[school_id] = school_name
+
+    for school_id, school_name in LEGACY_SCHOOL_NAMES.items():
+        names.setdefault(school_id, school_name)
+
+    return dict(sorted(names.items(), key=lambda item: int(item[0])))
 
 
 def build_manifest(years: list[str]) -> dict:
@@ -36,6 +85,7 @@ def build_manifest(years: list[str]) -> dict:
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "mapping_source": MAPPING_SOURCE,
         "gsat_stats_file": GSAT_STATS_FILE.name,
+        "school_names": build_school_names(years),
         "stats": stats,
     }
 
