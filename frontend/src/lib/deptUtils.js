@@ -235,6 +235,7 @@ export function buildDepartmentIndex(
       entry.years.sort((a, b) => Number(b) - Number(a));
       const display =
         entry.byYear[referenceYear] ?? entry.byYear[entry.years[0]];
+      if (!display) return null;
       const school_name = resolveSchoolName(
         entry.school_id,
         schoolNameRegistry,
@@ -248,6 +249,7 @@ export function buildDepartmentIndex(
         anchor: deptToAnchor(enrichedDisplay),
       };
     })
+    .filter(Boolean)
     .sort((a, b) => {
       const bySchool = compareNumericCodes(a.school_id, b.school_id);
       if (bySchool !== 0) return bySchool;
