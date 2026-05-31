@@ -106,7 +106,7 @@ PDF 簡章 ──► Python 清洗管線 ──► cleaned_data/*.json
 
 ### 使用方式
 
-**執行方式：** 以瀏覽器開啟 GitHub Pages 線上版 → **https://joshuatyan830.github.io/StarTracker/**（無需安裝，成績僅存於本機瀏覽器）。
+**執行方式：** 以瀏覽器開啟 GitHub Pages 線上版：[https://joshuatyan830.github.io/StarTracker/](https://joshuatyan830.github.io/StarTracker/)（無需安裝，成績僅存於本機瀏覽器）。
 
 #### 1. 進入與等待載入
 
