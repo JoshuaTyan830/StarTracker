@@ -159,6 +159,7 @@ export default function HomePage({ starData, compare }) {
   );
 
   useEffect(() => {
+    if (groupOptions.length === 0) return;
     setSelectedGroupIds((prev) => {
       const valid = new Set(groupOptions);
       const next = new Set([...prev].filter((g) => valid.has(g)));
@@ -167,6 +168,7 @@ export default function HomePage({ starData, compare }) {
   }, [groupOptions]);
 
   useEffect(() => {
+    if (schoolOptions.length === 0) return;
     setSelectedSchoolIds((prev) => {
       const valid = new Set(schoolOptions.map((s) => s.school_id));
       const next = new Set([...prev].filter((id) => valid.has(id)));
@@ -175,6 +177,7 @@ export default function HomePage({ starData, compare }) {
   }, [schoolOptions]);
 
   useEffect(() => {
+    if (availableYears.length === 0) return;
     if (
       presenceYear !== PRESENCE_FILTER_ALL &&
       !availableYears.includes(presenceYear)
