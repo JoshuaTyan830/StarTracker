@@ -17,6 +17,8 @@ export function loadHomeBrowseState() {
       selectedSchoolIds: Array.isArray(parsed.selectedSchoolIds)
         ? parsed.selectedSchoolIds.filter((id) => typeof id === 'string')
         : [],
+      quotaFilter:
+        typeof parsed.quotaFilter === 'string' ? parsed.quotaFilter : null,
     };
   } catch {
     return null;
@@ -28,6 +30,7 @@ export function saveHomeBrowseState({
   presenceYear,
   selectedGroupIds,
   selectedSchoolIds,
+  quotaFilter,
 }) {
   try {
     sessionStorage.setItem(
@@ -37,6 +40,7 @@ export function saveHomeBrowseState({
         presenceYear: presenceYear ?? null,
         selectedGroupIds: [...(selectedGroupIds ?? [])],
         selectedSchoolIds: [...(selectedSchoolIds ?? [])],
+        quotaFilter: quotaFilter ?? null,
       })
     );
   } catch {

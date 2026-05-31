@@ -1,9 +1,11 @@
 import { useMemo } from 'react';
 import {
   buildSchoolRankTrend,
+  getMaxRequirementRowCount,
   getRequirementsBlockMinHeightPx,
   historicalHasPractical,
 } from '../lib/historyUtils';
+import { loadUserScores } from '../lib/userScoresStore';
 import AddToCompareButton from './AddToCompareButton';
 import TrendLineChart from './history/TrendLineChart';
 import YearDetailColumn from './history/YearDetailColumn';
@@ -18,11 +20,21 @@ export default function HistoryModal({
   yearCache,
   compare,
   onClose,
+  gsatStats,
+  userScores: userScoresProp,
 }) {
+  const userScores = userScoresProp ?? loadUserScores();
   const showPracticalSection = useMemo(
     () => historicalHasPractical(historicalData),
     [historicalData]
   );
+
+  const maxReqRowCount = useMemo(
+    () => getMaxRequirementRowCount(historicalData),
+    [historicalData]
+  );
+
+  const referenceRequirements = selectedDept?.requirements ?? [];
 
   const requirementsMinHeightPx = useMemo(
     () => getRequirementsBlockMinHeightPx(historicalData, showPracticalSection),
@@ -119,31 +131,90 @@ export default function HistoryModal({
         </div>
 
         <div className="flex flex-1 min-h-0">
-          <aside className="w-[min(400px,34vw)] shrink-0 border-r border-gray-200 bg-gray-50/90 px-5 py-5 flex flex-col gap-5 min-h-0">
-            <p className="text-xs text-gray-500 leading-relaxed shrink-0">
-              左側為跨年趨勢；右側可橫向滑動對照各學年簡章。
-            </p>
-            <div className="flex flex-col flex-1 gap-5 min-h-0">
+          <aside className="w-[min(400px,34vw)] shrink-0 border-r border-gray-200 bg-gray-50/90 px-4 py-4 flex flex-col gap-3 min-h-0">
+            <div className="text-[11px] text-gray-500 leading-relaxed shrink-0 space-y-1.5">
+              <p>左側為跨年趨勢；右側可橫向滑動對照各學年簡章。</p>
+              {gsatStats && (
+                <div className="text-violet-800/90 space-y-1">
+                  <p>
+                    <span className="font-semibold text-violet-900">等值級分：</span>
+                    依累積人數百分比，將各欄學年檢定換算至對照學年（{referenceYear}），標示於檢定右側（如{' '}
+                    114 年頂標 12 級分 ≈{referenceYear}年的11級分 表示 114 年標準約等同 {referenceYear}{' '}
+                    學年 11 級分）。
+                  </p>
+                  <p>
+                    <span className="font-semibold text-violet-900">數學換算：</span>
+                    111 學年度起分數學 A／B；舊年度僅「數學」一科。對照學年若分科採計，各科分別換算。
+                  </p>
+                </div>
+              )}
+            </div>
+            <div className="flex flex-col flex-1 gap-3 min-h-0">
               <TrendLineChart
                 title="在校學業 · 第一輪篩選 (%)"
                 series={round1ChartSeries}
                 valueSuffix="%"
                 lineColor="#2563eb"
-                className="flex-1 min-h-0"
+                wide
+                flat
+                className="flex-[1_1_0] min-h-0"
               />
               <TrendLineChart
                 title="在校學業 · 第二輪 (%)"
                 series={round2ChartSeries}
                 valueSuffix="%"
                 lineColor="#dc2626"
-                className="flex-1 min-h-0"
+                wide
+                flat
+                className="flex-[1_1_0] min-h-0"
               />
             </div>
           </aside>
 
           <div className="flex-1 flex flex-col min-w-0 bg-gray-100 min-h-0">
             <div className="px-4 py-3 border-b border-gray-200 bg-white shrink-0 flex items-center justify-between gap-3">
-              <h3 className="text-lg font-bold text-gray-800">歷年錄取標準</h3>
+              <div className="flex items-center gap-2 min-w-0">
+                <h3 className="text-lg font-bold text-gray-800 shrink-0">歷年錄取標準</h3>
+                <span className="relative inline-flex shrink-0 group">
+                  <button
+                    type="button"
+                    className="w-5 h-5 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300 text-[11px] font-bold leading-none flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    aria-label="歷年錄取標準說明"
+                  >
+                    ?
+                  </button>
+                  <div
+                    role="tooltip"
+                    className="pointer-events-none absolute left-0 top-full mt-2 z-50 w-[min(22rem,calc(100vw-3rem))] px-3 py-2.5 rounded-lg bg-gray-900 text-white text-[11px] leading-relaxed shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity"
+                  >
+                    <p className="font-semibold text-gray-100 mb-1.5">關於「通過／不通過」</p>
+                    <p className="text-gray-300 mb-2">
+                      各學年標題旁的標籤，僅表示依您輸入的成績是否達該年簡章的
+                      <span className="text-white">第一階段學測、英聽檢定</span>
+                      ；不含分發比序、術科考或錄取結果。
+                    </p>
+                    <p className="font-semibold text-gray-100 mb-1.5">
+                      為何換算結果可能和直覺不同？
+                    </p>
+                    <ul className="text-gray-300 space-y-1 list-disc pl-4">
+                      <li>
+                        歷年欄位以您選定的對照學年（{referenceYear}）所填成績判定；該年檢定會先換算成
+                        {referenceYear} 年的等值級分再比對（右側紫色 ≈{referenceYear}年的…級分）。
+                      </li>
+                      <li>
+                        因此可能出現：{referenceYear} 年欄顯示「不通過」，舊年卻顯示「通過」——例如該年頂標換算至{' '}
+                        {referenceYear} 年低於您的成績，但您尚未達 {referenceYear} 年簡章原文門檻。
+                      </li>
+                      <li>
+                        頂標、前標等名稱的定義每年都相同，但各年「頂標是幾級分」、以及每個級分對應的累積人數百分比並不一致。換算時只能找最接近的級分，因此結果可能和直覺略有出入。
+                      </li>
+                      <li>
+                        111 學年度起學測分數學 A／B 兩科，舊年度簡章僅「數學」一科；跨年度比對時各科分別換算，也可能加劇上述落差。
+                      </li>
+                    </ul>
+                  </div>
+                </span>
+              </div>
               <span className="text-xs text-gray-400 shrink-0">← 橫向滑動查看更多學年</span>
             </div>
 
@@ -158,6 +229,11 @@ export default function HistoryModal({
                       anchorDeptId={anchorDeptId}
                       showPracticalSection={showPracticalSection}
                       requirementsMinHeightPx={requirementsMinHeightPx}
+                      referenceYear={referenceYear}
+                      gsatStats={gsatStats}
+                      maxReqRowCount={maxReqRowCount}
+                      referenceRequirements={referenceRequirements}
+                      userScores={userScores}
                     />
                   ))}
                 </div>

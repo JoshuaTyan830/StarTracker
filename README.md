@@ -72,4 +72,43 @@
 <!-- 完整描述你的專案做了什麼 -->
 
 ### 使用方式
-<!-- 如何編譯、執行、使用你的程式 -->
+
+#### 本機開發
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+資料檔需先複製到 `frontend/public/data`（本機開發用，不進 git）：
+
+```bash
+python scripts/copy_to_public.py --all
+```
+
+#### GitHub Pages 部署（期末 demo）
+
+線上網址：**https://joshuatyan830.github.io/StarTracker/**
+
+1. **準備資料**（約 69MB，需 force-add 一次；`frontend/public/data/` 在 `.gitignore` 中）：
+
+   ```bash
+   python scripts/copy_to_public.py --all
+   git add -f frontend/public/data
+   git commit -m "chore: add demo data for GitHub Pages"
+   ```
+
+2. **推送程式碼**（含 `.github/workflows/deploy-pages.yml`）至 `main`。
+
+3. **GitHub 倉庫設定**：Settings → Pages → Build and deployment → Source 選 **GitHub Actions**。
+
+4. push 後 Actions 會自動 build 並部署；首次可在 Actions 分頁查看 workflow 是否成功。
+
+本機可先用與 Pages 相同 base path 預覽：
+
+```bash
+cd frontend && npm run build && npm run preview:pages
+```
+
+> **注意**：首次載入需下載對照學年 JSON（約 7MB），完整 10 年背景載入約 69MB；demo 時可先等主表出現再操作。暑假可改按需載入以加速。

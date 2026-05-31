@@ -1,19 +1,20 @@
-import { MAX_COMPARE, PAGE_SHELL_COMPARE, PAGE_SHELL_HOME } from '../lib/constants';
+import { MAX_COMPARE, PAGE_SHELL_NAV } from '../lib/constants';
 
 export default function AppNav({ activePage, onNavigate, compareCount }) {
-  const shell = `${
-    activePage === 'compare' ? PAGE_SHELL_COMPARE : PAGE_SHELL_HOME
-  } flex items-center gap-1 h-14`;
-
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-40">
-      <div className={shell}>
+      <div className={`${PAGE_SHELL_NAV} flex items-center gap-1 h-16`}>
         <button
           type="button"
           onClick={() => onNavigate('home')}
-          className="text-lg font-bold text-blue-900 mr-4 hover:opacity-80 transition-opacity"
+          className="inline-flex items-center gap-1.5 mr-6 hover:opacity-85 transition-opacity"
         >
-          StarTracker 🌟
+          <span className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-blue-800 to-indigo-600 bg-clip-text text-transparent">
+            StarTracker
+          </span>
+          <span className="text-lg leading-none" aria-hidden>
+            🌟
+          </span>
         </button>
         <button
           type="button"

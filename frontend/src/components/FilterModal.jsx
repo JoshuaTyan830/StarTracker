@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PRESENCE_FILTER_ALL } from '../lib/constants';
+import { PRESENCE_FILTER_ALL, QUOTA_FILTER_ALL, QUOTA_FILTER_EXTRA, QUOTA_FILTER_REGULAR } from '../lib/constants';
 import { getGroupLabel } from '../lib/deptUtils';
 
 export default function FilterModal({
@@ -19,6 +19,8 @@ export default function FilterModal({
   availableYears,
   onClearAll,
   selectedFilterItemCount,
+  quotaFilter,
+  onQuotaFilterChange,
 }) {
   const [schoolSearch, setSchoolSearch] = useState('');
   const searchTerm = schoolSearch.trim();
@@ -56,30 +58,51 @@ export default function FilterModal({
         </div>
 
         <div className="flex flex-1 min-h-0">
-          <aside className="w-72 shrink-0 border-r-2 border-gray-300 flex flex-col bg-gray-50/80">
-            <div className="p-5 border-b-2 border-gray-300 shrink-0">
-              <h3 className="text-base font-bold text-gray-800 mb-3">招生年份</h3>
-              <select
-                value={presenceYear}
-                onChange={(e) => onPresenceYearChange(e.target.value)}
-                className="w-full p-2.5 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value={PRESENCE_FILTER_ALL}>不限學年</option>
-                {availableYears.map((year) => (
-                  <option key={year} value={year}>
-                    {year} 學年度
-                  </option>
-                ))}
-              </select>
-              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
-                選特定學年可對照該年簡章；不限則顯示歷年曾出現的所有校系。
-              </p>
+          <aside className="w-72 shrink-0 self-stretch border-r-2 border-gray-300 flex flex-col min-h-0 bg-gray-50/80">
+            <div className="shrink-0 px-4 pt-4 pb-3 border-b border-gray-200 space-y-3">
+              <div>
+                <label className="text-xs font-semibold text-gray-600 mb-1 block">
+                  招生年份
+                </label>
+                <select
+                  value={presenceYear}
+                  onChange={(e) => onPresenceYearChange(e.target.value)}
+                  className="w-full py-1.5 px-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value={PRESENCE_FILTER_ALL}>不限學年</option>
+                  {availableYears.map((year) => (
+                    <option key={year} value={year}>
+                      {year} 學年度
+                    </option>
+                  ))}
+                </select>
+                <p className="text-[11px] text-gray-500 mt-1 leading-snug">
+                  選特定學年可對照該年簡章；不限則顯示歷年曾出現的所有校系。
+                </p>
+              </div>
+              <div>
+                <label className="text-xs font-semibold text-gray-600 mb-1 block">
+                  名額類型
+                </label>
+                <select
+                  value={quotaFilter ?? QUOTA_FILTER_ALL}
+                  onChange={(e) => onQuotaFilterChange(e.target.value)}
+                  className="w-full py-1.5 px-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value={QUOTA_FILTER_ALL}>全部（一般＋外加）</option>
+                  <option value={QUOTA_FILTER_REGULAR}>僅一般生</option>
+                  <option value={QUOTA_FILTER_EXTRA}>僅外加名額</option>
+                </select>
+                <p className="text-[11px] text-gray-500 mt-1 leading-snug">
+                  一般生與外加名額為不同招生管道，主表分開列計。
+                </p>
+              </div>
             </div>
 
-            <div className="flex flex-col flex-1 min-h-0 p-5">
-              <div className="flex justify-between items-center mb-3 shrink-0">
-                <h3 className="text-base font-bold text-gray-800">學群</h3>
-                <div className="flex gap-1.5 text-xs">
+            <div className="flex-1 flex flex-col min-h-0 px-4 py-3">
+              <div className="flex justify-between items-center mb-2 shrink-0">
+                <h3 className="text-sm font-bold text-gray-800">學群</h3>
+                <div className="flex gap-1.5 text-[11px]">
                   <button
                     type="button"
                     onClick={onSelectAllGroups}
@@ -97,19 +120,19 @@ export default function FilterModal({
                   </button>
                 </div>
               </div>
-              <div className="overflow-y-auto flex-1 -mx-1 px-1 space-y-0.5">
+              <div className="flex-1 flex flex-col min-h-0">
                 {groupOptions.map((group) => (
                   <label
                     key={group}
-                    className="flex items-start gap-2.5 px-2 py-2 rounded-lg hover:bg-white cursor-pointer"
+                    className="flex-1 flex items-center gap-2 px-1 min-h-[1.75rem] rounded-md hover:bg-white cursor-pointer"
                   >
                     <input
                       type="checkbox"
                       checked={selectedGroupIds.has(group)}
                       onChange={() => onToggleGroup(group)}
-                      className="text-blue-600 rounded mt-0.5 shrink-0"
+                      className="text-blue-600 rounded shrink-0"
                     />
-                    <span className="text-sm text-gray-700 leading-snug">
+                    <span className="text-xs text-gray-700 leading-snug">
                       {getGroupLabel(group)}
                     </span>
                   </label>

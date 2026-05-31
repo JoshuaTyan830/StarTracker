@@ -1,0 +1,3652 @@
+{
+    "106": {
+        "國文": {
+            "15": {
+                "percentage": 2.67,
+                "top_down_percentile": 2.67
+            },
+            "14": {
+                "percentage": 7.11,
+                "top_down_percentile": 9.78
+            },
+            "13": {
+                "percentage": 12.91,
+                "top_down_percentile": 22.69
+            },
+            "12": {
+                "percentage": 15.84,
+                "top_down_percentile": 38.53
+            },
+            "11": {
+                "percentage": 15.76,
+                "top_down_percentile": 54.29
+            },
+            "10": {
+                "percentage": 12.94,
+                "top_down_percentile": 67.23
+            },
+            "9": {
+                "percentage": 10.07,
+                "top_down_percentile": 77.3
+            },
+            "8": {
+                "percentage": 7.48,
+                "top_down_percentile": 84.78
+            },
+            "7": {
+                "percentage": 5.31,
+                "top_down_percentile": 90.09
+            },
+            "6": {
+                "percentage": 3.92,
+                "top_down_percentile": 94.01
+            },
+            "5": {
+                "percentage": 2.75,
+                "top_down_percentile": 96.76
+            },
+            "4": {
+                "percentage": 1.77,
+                "top_down_percentile": 98.53
+            },
+            "3": {
+                "percentage": 1.07,
+                "top_down_percentile": 99.6
+            },
+            "2": {
+                "percentage": 0.36,
+                "top_down_percentile": 99.96
+            },
+            "1": {
+                "percentage": 0.03,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 99.99
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 3.72,
+                "top_down_percentile": 3.72
+            },
+            "14": {
+                "percentage": 5.58,
+                "top_down_percentile": 9.3
+            },
+            "13": {
+                "percentage": 7.25,
+                "top_down_percentile": 16.55
+            },
+            "12": {
+                "percentage": 6.93,
+                "top_down_percentile": 23.48
+            },
+            "11": {
+                "percentage": 7.56,
+                "top_down_percentile": 31.04
+            },
+            "10": {
+                "percentage": 7.21,
+                "top_down_percentile": 38.25
+            },
+            "9": {
+                "percentage": 7.8,
+                "top_down_percentile": 46.05
+            },
+            "8": {
+                "percentage": 8.05,
+                "top_down_percentile": 54.1
+            },
+            "7": {
+                "percentage": 7.99,
+                "top_down_percentile": 62.09
+            },
+            "6": {
+                "percentage": 9.43,
+                "top_down_percentile": 71.52
+            },
+            "5": {
+                "percentage": 9.44,
+                "top_down_percentile": 80.96
+            },
+            "4": {
+                "percentage": 10.64,
+                "top_down_percentile": 91.6
+            },
+            "3": {
+                "percentage": 7.1,
+                "top_down_percentile": 98.7
+            },
+            "2": {
+                "percentage": 1.28,
+                "top_down_percentile": 99.98
+            },
+            "1": {
+                "percentage": 0.04,
+                "top_down_percentile": 100.02
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.02
+            }
+        },
+        "數學": {
+            "15": {
+                "percentage": 1.41,
+                "top_down_percentile": 1.41
+            },
+            "14": {
+                "percentage": 2.0,
+                "top_down_percentile": 3.41
+            },
+            "13": {
+                "percentage": 2.63,
+                "top_down_percentile": 6.04
+            },
+            "12": {
+                "percentage": 3.27,
+                "top_down_percentile": 9.31
+            },
+            "11": {
+                "percentage": 5.07,
+                "top_down_percentile": 14.38
+            },
+            "10": {
+                "percentage": 5.25,
+                "top_down_percentile": 19.63
+            },
+            "9": {
+                "percentage": 5.97,
+                "top_down_percentile": 25.6
+            },
+            "8": {
+                "percentage": 7.15,
+                "top_down_percentile": 32.75
+            },
+            "7": {
+                "percentage": 9.45,
+                "top_down_percentile": 42.2
+            },
+            "6": {
+                "percentage": 8.96,
+                "top_down_percentile": 51.16
+            },
+            "5": {
+                "percentage": 9.86,
+                "top_down_percentile": 61.02
+            },
+            "4": {
+                "percentage": 13.47,
+                "top_down_percentile": 74.49
+            },
+            "3": {
+                "percentage": 12.64,
+                "top_down_percentile": 87.13
+            },
+            "2": {
+                "percentage": 9.64,
+                "top_down_percentile": 96.77
+            },
+            "1": {
+                "percentage": 3.16,
+                "top_down_percentile": 99.93
+            },
+            "0": {
+                "percentage": 0.07,
+                "top_down_percentile": 100.0
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 3.95,
+                "top_down_percentile": 3.95
+            },
+            "14": {
+                "percentage": 11.93,
+                "top_down_percentile": 15.88
+            },
+            "13": {
+                "percentage": 13.25,
+                "top_down_percentile": 29.13
+            },
+            "12": {
+                "percentage": 13.36,
+                "top_down_percentile": 42.49
+            },
+            "11": {
+                "percentage": 15.4,
+                "top_down_percentile": 57.89
+            },
+            "10": {
+                "percentage": 10.46,
+                "top_down_percentile": 68.35
+            },
+            "9": {
+                "percentage": 9.09,
+                "top_down_percentile": 77.44
+            },
+            "8": {
+                "percentage": 9.56,
+                "top_down_percentile": 87.0
+            },
+            "7": {
+                "percentage": 6.18,
+                "top_down_percentile": 93.18
+            },
+            "6": {
+                "percentage": 4.62,
+                "top_down_percentile": 97.8
+            },
+            "5": {
+                "percentage": 1.64,
+                "top_down_percentile": 99.44
+            },
+            "4": {
+                "percentage": 0.5,
+                "top_down_percentile": 99.94
+            },
+            "3": {
+                "percentage": 0.07,
+                "top_down_percentile": 100.01
+            },
+            "2": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.01
+            },
+            "1": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.01
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 4.5,
+                "top_down_percentile": 4.5
+            },
+            "14": {
+                "percentage": 6.03,
+                "top_down_percentile": 10.53
+            },
+            "13": {
+                "percentage": 7.46,
+                "top_down_percentile": 17.99
+            },
+            "12": {
+                "percentage": 7.58,
+                "top_down_percentile": 25.57
+            },
+            "11": {
+                "percentage": 7.77,
+                "top_down_percentile": 33.34
+            },
+            "10": {
+                "percentage": 8.03,
+                "top_down_percentile": 41.37
+            },
+            "9": {
+                "percentage": 8.79,
+                "top_down_percentile": 50.16
+            },
+            "8": {
+                "percentage": 9.26,
+                "top_down_percentile": 59.42
+            },
+            "7": {
+                "percentage": 10.51,
+                "top_down_percentile": 69.93
+            },
+            "6": {
+                "percentage": 10.96,
+                "top_down_percentile": 80.89
+            },
+            "5": {
+                "percentage": 10.39,
+                "top_down_percentile": 91.28
+            },
+            "4": {
+                "percentage": 6.83,
+                "top_down_percentile": 98.11
+            },
+            "3": {
+                "percentage": 1.78,
+                "top_down_percentile": 99.89
+            },
+            "2": {
+                "percentage": 0.1,
+                "top_down_percentile": 99.99
+            },
+            "1": {
+                "percentage": 0.0,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 99.99
+            }
+        }
+    },
+    "107": {
+        "國文": {
+            "15": {
+                "percentage": 2.79,
+                "top_down_percentile": 2.79
+            },
+            "14": {
+                "percentage": 7.16,
+                "top_down_percentile": 9.95
+            },
+            "13": {
+                "percentage": 12.4,
+                "top_down_percentile": 22.35
+            },
+            "12": {
+                "percentage": 16.03,
+                "top_down_percentile": 38.38
+            },
+            "11": {
+                "percentage": 16.56,
+                "top_down_percentile": 54.94
+            },
+            "10": {
+                "percentage": 14.61,
+                "top_down_percentile": 69.55
+            },
+            "9": {
+                "percentage": 11.29,
+                "top_down_percentile": 80.84
+            },
+            "8": {
+                "percentage": 7.71,
+                "top_down_percentile": 88.55
+            },
+            "7": {
+                "percentage": 4.97,
+                "top_down_percentile": 93.52
+            },
+            "6": {
+                "percentage": 3.03,
+                "top_down_percentile": 96.55
+            },
+            "5": {
+                "percentage": 1.78,
+                "top_down_percentile": 98.33
+            },
+            "4": {
+                "percentage": 0.94,
+                "top_down_percentile": 99.27
+            },
+            "3": {
+                "percentage": 0.59,
+                "top_down_percentile": 99.86
+            },
+            "2": {
+                "percentage": 0.13,
+                "top_down_percentile": 99.99
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.0
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 5.52,
+                "top_down_percentile": 5.52
+            },
+            "14": {
+                "percentage": 9.85,
+                "top_down_percentile": 15.37
+            },
+            "13": {
+                "percentage": 9.68,
+                "top_down_percentile": 25.05
+            },
+            "12": {
+                "percentage": 9.95,
+                "top_down_percentile": 35.0
+            },
+            "11": {
+                "percentage": 8.92,
+                "top_down_percentile": 43.92
+            },
+            "10": {
+                "percentage": 7.25,
+                "top_down_percentile": 51.17
+            },
+            "9": {
+                "percentage": 7.12,
+                "top_down_percentile": 58.29
+            },
+            "8": {
+                "percentage": 6.62,
+                "top_down_percentile": 64.91
+            },
+            "7": {
+                "percentage": 5.75,
+                "top_down_percentile": 70.66
+            },
+            "6": {
+                "percentage": 6.21,
+                "top_down_percentile": 76.87
+            },
+            "5": {
+                "percentage": 6.81,
+                "top_down_percentile": 83.68
+            },
+            "4": {
+                "percentage": 7.12,
+                "top_down_percentile": 90.8
+            },
+            "3": {
+                "percentage": 7.76,
+                "top_down_percentile": 98.56
+            },
+            "2": {
+                "percentage": 1.41,
+                "top_down_percentile": 99.97
+            },
+            "1": {
+                "percentage": 0.04,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.01
+            }
+        },
+        "數學": {
+            "15": {
+                "percentage": 2.75,
+                "top_down_percentile": 2.75
+            },
+            "14": {
+                "percentage": 3.44,
+                "top_down_percentile": 6.19
+            },
+            "13": {
+                "percentage": 4.29,
+                "top_down_percentile": 10.48
+            },
+            "12": {
+                "percentage": 4.4,
+                "top_down_percentile": 14.88
+            },
+            "11": {
+                "percentage": 5.87,
+                "top_down_percentile": 20.75
+            },
+            "10": {
+                "percentage": 6.84,
+                "top_down_percentile": 27.59
+            },
+            "9": {
+                "percentage": 6.64,
+                "top_down_percentile": 34.23
+            },
+            "8": {
+                "percentage": 7.67,
+                "top_down_percentile": 41.9
+            },
+            "7": {
+                "percentage": 8.05,
+                "top_down_percentile": 49.95
+            },
+            "6": {
+                "percentage": 7.95,
+                "top_down_percentile": 57.9
+            },
+            "5": {
+                "percentage": 10.63,
+                "top_down_percentile": 68.53
+            },
+            "4": {
+                "percentage": 12.29,
+                "top_down_percentile": 80.82
+            },
+            "3": {
+                "percentage": 10.43,
+                "top_down_percentile": 91.25
+            },
+            "2": {
+                "percentage": 7.24,
+                "top_down_percentile": 98.49
+            },
+            "1": {
+                "percentage": 1.47,
+                "top_down_percentile": 99.96
+            },
+            "0": {
+                "percentage": 0.04,
+                "top_down_percentile": 100.0
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 3.17,
+                "top_down_percentile": 3.17
+            },
+            "14": {
+                "percentage": 8.3,
+                "top_down_percentile": 11.47
+            },
+            "13": {
+                "percentage": 9.74,
+                "top_down_percentile": 21.21
+            },
+            "12": {
+                "percentage": 14.39,
+                "top_down_percentile": 35.6
+            },
+            "11": {
+                "percentage": 12.14,
+                "top_down_percentile": 47.74
+            },
+            "10": {
+                "percentage": 14.51,
+                "top_down_percentile": 62.25
+            },
+            "9": {
+                "percentage": 10.18,
+                "top_down_percentile": 72.43
+            },
+            "8": {
+                "percentage": 8.7,
+                "top_down_percentile": 81.13
+            },
+            "7": {
+                "percentage": 8.53,
+                "top_down_percentile": 89.66
+            },
+            "6": {
+                "percentage": 5.08,
+                "top_down_percentile": 94.74
+            },
+            "5": {
+                "percentage": 3.88,
+                "top_down_percentile": 98.62
+            },
+            "4": {
+                "percentage": 1.16,
+                "top_down_percentile": 99.78
+            },
+            "3": {
+                "percentage": 0.21,
+                "top_down_percentile": 99.99
+            },
+            "2": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            },
+            "1": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.0
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 2.17,
+                "top_down_percentile": 2.17
+            },
+            "14": {
+                "percentage": 3.42,
+                "top_down_percentile": 5.59
+            },
+            "13": {
+                "percentage": 5.06,
+                "top_down_percentile": 10.65
+            },
+            "12": {
+                "percentage": 6.55,
+                "top_down_percentile": 17.2
+            },
+            "11": {
+                "percentage": 7.52,
+                "top_down_percentile": 24.72
+            },
+            "10": {
+                "percentage": 8.66,
+                "top_down_percentile": 33.38
+            },
+            "9": {
+                "percentage": 9.78,
+                "top_down_percentile": 43.16
+            },
+            "8": {
+                "percentage": 10.86,
+                "top_down_percentile": 54.02
+            },
+            "7": {
+                "percentage": 12.42,
+                "top_down_percentile": 66.44
+            },
+            "6": {
+                "percentage": 13.24,
+                "top_down_percentile": 79.68
+            },
+            "5": {
+                "percentage": 11.45,
+                "top_down_percentile": 91.13
+            },
+            "4": {
+                "percentage": 6.89,
+                "top_down_percentile": 98.02
+            },
+            "3": {
+                "percentage": 1.85,
+                "top_down_percentile": 99.87
+            },
+            "2": {
+                "percentage": 0.13,
+                "top_down_percentile": 100.0
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.01
+            }
+        }
+    },
+    "108": {
+        "國文": {
+            "15": {
+                "percentage": 3.26,
+                "top_down_percentile": 3.26
+            },
+            "14": {
+                "percentage": 8.47,
+                "top_down_percentile": 11.73
+            },
+            "13": {
+                "percentage": 13.91,
+                "top_down_percentile": 25.64
+            },
+            "12": {
+                "percentage": 16.47,
+                "top_down_percentile": 42.11
+            },
+            "11": {
+                "percentage": 16.03,
+                "top_down_percentile": 58.14
+            },
+            "10": {
+                "percentage": 13.64,
+                "top_down_percentile": 71.78
+            },
+            "9": {
+                "percentage": 9.86,
+                "top_down_percentile": 81.64
+            },
+            "8": {
+                "percentage": 6.6,
+                "top_down_percentile": 88.24
+            },
+            "7": {
+                "percentage": 4.46,
+                "top_down_percentile": 92.7
+            },
+            "6": {
+                "percentage": 2.98,
+                "top_down_percentile": 95.68
+            },
+            "5": {
+                "percentage": 2.01,
+                "top_down_percentile": 97.69
+            },
+            "4": {
+                "percentage": 1.22,
+                "top_down_percentile": 98.91
+            },
+            "3": {
+                "percentage": 0.76,
+                "top_down_percentile": 99.67
+            },
+            "2": {
+                "percentage": 0.32,
+                "top_down_percentile": 99.99
+            },
+            "1": {
+                "percentage": 0.02,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.02
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 5.66,
+                "top_down_percentile": 5.66
+            },
+            "14": {
+                "percentage": 9.85,
+                "top_down_percentile": 15.51
+            },
+            "13": {
+                "percentage": 9.94,
+                "top_down_percentile": 25.45
+            },
+            "12": {
+                "percentage": 9.49,
+                "top_down_percentile": 34.94
+            },
+            "11": {
+                "percentage": 7.93,
+                "top_down_percentile": 42.87
+            },
+            "10": {
+                "percentage": 7.21,
+                "top_down_percentile": 50.08
+            },
+            "9": {
+                "percentage": 6.37,
+                "top_down_percentile": 56.45
+            },
+            "8": {
+                "percentage": 6.07,
+                "top_down_percentile": 62.52
+            },
+            "7": {
+                "percentage": 5.88,
+                "top_down_percentile": 68.4
+            },
+            "6": {
+                "percentage": 6.42,
+                "top_down_percentile": 74.82
+            },
+            "5": {
+                "percentage": 7.02,
+                "top_down_percentile": 81.84
+            },
+            "4": {
+                "percentage": 8.85,
+                "top_down_percentile": 90.69
+            },
+            "3": {
+                "percentage": 7.74,
+                "top_down_percentile": 98.43
+            },
+            "2": {
+                "percentage": 1.53,
+                "top_down_percentile": 99.96
+            },
+            "1": {
+                "percentage": 0.03,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            }
+        },
+        "數學": {
+            "15": {
+                "percentage": 5.82,
+                "top_down_percentile": 5.82
+            },
+            "14": {
+                "percentage": 6.62,
+                "top_down_percentile": 12.44
+            },
+            "13": {
+                "percentage": 6.68,
+                "top_down_percentile": 19.12
+            },
+            "12": {
+                "percentage": 7.78,
+                "top_down_percentile": 26.9
+            },
+            "11": {
+                "percentage": 8.17,
+                "top_down_percentile": 35.07
+            },
+            "10": {
+                "percentage": 6.98,
+                "top_down_percentile": 42.05
+            },
+            "9": {
+                "percentage": 8.66,
+                "top_down_percentile": 50.71
+            },
+            "8": {
+                "percentage": 8.11,
+                "top_down_percentile": 58.82
+            },
+            "7": {
+                "percentage": 6.68,
+                "top_down_percentile": 65.5
+            },
+            "6": {
+                "percentage": 7.64,
+                "top_down_percentile": 73.14
+            },
+            "5": {
+                "percentage": 7.86,
+                "top_down_percentile": 81.0
+            },
+            "4": {
+                "percentage": 7.15,
+                "top_down_percentile": 88.15
+            },
+            "3": {
+                "percentage": 7.33,
+                "top_down_percentile": 95.48
+            },
+            "2": {
+                "percentage": 3.81,
+                "top_down_percentile": 99.29
+            },
+            "1": {
+                "percentage": 0.68,
+                "top_down_percentile": 99.97
+            },
+            "0": {
+                "percentage": 0.03,
+                "top_down_percentile": 100.0
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 2.12,
+                "top_down_percentile": 2.12
+            },
+            "14": {
+                "percentage": 5.08,
+                "top_down_percentile": 7.2
+            },
+            "13": {
+                "percentage": 12.49,
+                "top_down_percentile": 19.69
+            },
+            "12": {
+                "percentage": 14.08,
+                "top_down_percentile": 33.77
+            },
+            "11": {
+                "percentage": 15.53,
+                "top_down_percentile": 49.3
+            },
+            "10": {
+                "percentage": 14.66,
+                "top_down_percentile": 63.96
+            },
+            "9": {
+                "percentage": 12.1,
+                "top_down_percentile": 76.06
+            },
+            "8": {
+                "percentage": 9.09,
+                "top_down_percentile": 85.15
+            },
+            "7": {
+                "percentage": 6.65,
+                "top_down_percentile": 91.8
+            },
+            "6": {
+                "percentage": 4.68,
+                "top_down_percentile": 96.48
+            },
+            "5": {
+                "percentage": 2.53,
+                "top_down_percentile": 99.01
+            },
+            "4": {
+                "percentage": 0.89,
+                "top_down_percentile": 99.9
+            },
+            "3": {
+                "percentage": 0.1,
+                "top_down_percentile": 100.0
+            },
+            "2": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            },
+            "1": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.02
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 3.81,
+                "top_down_percentile": 3.81
+            },
+            "14": {
+                "percentage": 5.18,
+                "top_down_percentile": 8.99
+            },
+            "13": {
+                "percentage": 6.11,
+                "top_down_percentile": 15.1
+            },
+            "12": {
+                "percentage": 6.74,
+                "top_down_percentile": 21.84
+            },
+            "11": {
+                "percentage": 7.14,
+                "top_down_percentile": 28.98
+            },
+            "10": {
+                "percentage": 7.27,
+                "top_down_percentile": 36.25
+            },
+            "9": {
+                "percentage": 7.88,
+                "top_down_percentile": 44.13
+            },
+            "8": {
+                "percentage": 8.79,
+                "top_down_percentile": 52.92
+            },
+            "7": {
+                "percentage": 10.45,
+                "top_down_percentile": 63.37
+            },
+            "6": {
+                "percentage": 12.93,
+                "top_down_percentile": 76.3
+            },
+            "5": {
+                "percentage": 13.02,
+                "top_down_percentile": 89.32
+            },
+            "4": {
+                "percentage": 8.35,
+                "top_down_percentile": 97.67
+            },
+            "3": {
+                "percentage": 2.16,
+                "top_down_percentile": 99.83
+            },
+            "2": {
+                "percentage": 0.13,
+                "top_down_percentile": 99.96
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 99.97
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 99.98
+            }
+        }
+    },
+    "109": {
+        "國文": {
+            "15": {
+                "percentage": 3.26,
+                "top_down_percentile": 3.26
+            },
+            "14": {
+                "percentage": 8.43,
+                "top_down_percentile": 11.69
+            },
+            "13": {
+                "percentage": 14.89,
+                "top_down_percentile": 26.58
+            },
+            "12": {
+                "percentage": 17.66,
+                "top_down_percentile": 44.24
+            },
+            "11": {
+                "percentage": 16.33,
+                "top_down_percentile": 60.57
+            },
+            "10": {
+                "percentage": 13.38,
+                "top_down_percentile": 73.95
+            },
+            "9": {
+                "percentage": 9.05,
+                "top_down_percentile": 83.0
+            },
+            "8": {
+                "percentage": 5.92,
+                "top_down_percentile": 88.92
+            },
+            "7": {
+                "percentage": 4.0,
+                "top_down_percentile": 92.92
+            },
+            "6": {
+                "percentage": 2.76,
+                "top_down_percentile": 95.68
+            },
+            "5": {
+                "percentage": 1.94,
+                "top_down_percentile": 97.62
+            },
+            "4": {
+                "percentage": 1.35,
+                "top_down_percentile": 98.97
+            },
+            "3": {
+                "percentage": 0.81,
+                "top_down_percentile": 99.78
+            },
+            "2": {
+                "percentage": 0.21,
+                "top_down_percentile": 99.99
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 4.6,
+                "top_down_percentile": 4.6
+            },
+            "14": {
+                "percentage": 7.97,
+                "top_down_percentile": 12.57
+            },
+            "13": {
+                "percentage": 9.86,
+                "top_down_percentile": 22.43
+            },
+            "12": {
+                "percentage": 9.25,
+                "top_down_percentile": 31.68
+            },
+            "11": {
+                "percentage": 8.6,
+                "top_down_percentile": 40.28
+            },
+            "10": {
+                "percentage": 8.07,
+                "top_down_percentile": 48.35
+            },
+            "9": {
+                "percentage": 7.37,
+                "top_down_percentile": 55.72
+            },
+            "8": {
+                "percentage": 6.99,
+                "top_down_percentile": 62.71
+            },
+            "7": {
+                "percentage": 6.58,
+                "top_down_percentile": 69.29
+            },
+            "6": {
+                "percentage": 6.93,
+                "top_down_percentile": 76.22
+            },
+            "5": {
+                "percentage": 7.69,
+                "top_down_percentile": 83.91
+            },
+            "4": {
+                "percentage": 7.87,
+                "top_down_percentile": 91.78
+            },
+            "3": {
+                "percentage": 6.94,
+                "top_down_percentile": 98.72
+            },
+            "2": {
+                "percentage": 1.24,
+                "top_down_percentile": 99.96
+            },
+            "1": {
+                "percentage": 0.03,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 99.99
+            }
+        },
+        "數學": {
+            "15": {
+                "percentage": 11.22,
+                "top_down_percentile": 11.22
+            },
+            "14": {
+                "percentage": 8.78,
+                "top_down_percentile": 20.0
+            },
+            "13": {
+                "percentage": 6.84,
+                "top_down_percentile": 26.84
+            },
+            "12": {
+                "percentage": 6.89,
+                "top_down_percentile": 33.73
+            },
+            "11": {
+                "percentage": 7.05,
+                "top_down_percentile": 40.78
+            },
+            "10": {
+                "percentage": 6.24,
+                "top_down_percentile": 47.02
+            },
+            "9": {
+                "percentage": 7.28,
+                "top_down_percentile": 54.3
+            },
+            "8": {
+                "percentage": 7.11,
+                "top_down_percentile": 61.41
+            },
+            "7": {
+                "percentage": 6.05,
+                "top_down_percentile": 67.46
+            },
+            "6": {
+                "percentage": 7.05,
+                "top_down_percentile": 74.51
+            },
+            "5": {
+                "percentage": 7.06,
+                "top_down_percentile": 81.57
+            },
+            "4": {
+                "percentage": 6.45,
+                "top_down_percentile": 88.02
+            },
+            "3": {
+                "percentage": 6.92,
+                "top_down_percentile": 94.94
+            },
+            "2": {
+                "percentage": 4.13,
+                "top_down_percentile": 99.07
+            },
+            "1": {
+                "percentage": 0.89,
+                "top_down_percentile": 99.96
+            },
+            "0": {
+                "percentage": 0.04,
+                "top_down_percentile": 100.0
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 3.79,
+                "top_down_percentile": 3.79
+            },
+            "14": {
+                "percentage": 6.65,
+                "top_down_percentile": 10.44
+            },
+            "13": {
+                "percentage": 12.62,
+                "top_down_percentile": 23.06
+            },
+            "12": {
+                "percentage": 12.39,
+                "top_down_percentile": 35.45
+            },
+            "11": {
+                "percentage": 13.2,
+                "top_down_percentile": 48.65
+            },
+            "10": {
+                "percentage": 15.51,
+                "top_down_percentile": 64.16
+            },
+            "9": {
+                "percentage": 10.63,
+                "top_down_percentile": 74.79
+            },
+            "8": {
+                "percentage": 10.47,
+                "top_down_percentile": 85.26
+            },
+            "7": {
+                "percentage": 6.37,
+                "top_down_percentile": 91.63
+            },
+            "6": {
+                "percentage": 4.73,
+                "top_down_percentile": 96.36
+            },
+            "5": {
+                "percentage": 3.08,
+                "top_down_percentile": 99.44
+            },
+            "4": {
+                "percentage": 0.51,
+                "top_down_percentile": 99.95
+            },
+            "3": {
+                "percentage": 0.05,
+                "top_down_percentile": 100.0
+            },
+            "2": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.02
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.02
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 4.31,
+                "top_down_percentile": 4.31
+            },
+            "14": {
+                "percentage": 5.5,
+                "top_down_percentile": 9.81
+            },
+            "13": {
+                "percentage": 6.87,
+                "top_down_percentile": 16.68
+            },
+            "12": {
+                "percentage": 7.52,
+                "top_down_percentile": 24.2
+            },
+            "11": {
+                "percentage": 7.7,
+                "top_down_percentile": 31.9
+            },
+            "10": {
+                "percentage": 7.79,
+                "top_down_percentile": 39.69
+            },
+            "9": {
+                "percentage": 7.3,
+                "top_down_percentile": 46.99
+            },
+            "8": {
+                "percentage": 7.93,
+                "top_down_percentile": 54.92
+            },
+            "7": {
+                "percentage": 9.49,
+                "top_down_percentile": 64.41
+            },
+            "6": {
+                "percentage": 12.04,
+                "top_down_percentile": 76.45
+            },
+            "5": {
+                "percentage": 12.94,
+                "top_down_percentile": 89.39
+            },
+            "4": {
+                "percentage": 8.46,
+                "top_down_percentile": 97.85
+            },
+            "3": {
+                "percentage": 1.99,
+                "top_down_percentile": 99.84
+            },
+            "2": {
+                "percentage": 0.13,
+                "top_down_percentile": 99.97
+            },
+            "1": {
+                "percentage": 0.0,
+                "top_down_percentile": 99.97
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 99.98
+            }
+        }
+    },
+    "110": {
+        "國文": {
+            "15": {
+                "percentage": 3.22,
+                "top_down_percentile": 3.22
+            },
+            "14": {
+                "percentage": 8.11,
+                "top_down_percentile": 11.33
+            },
+            "13": {
+                "percentage": 13.53,
+                "top_down_percentile": 24.86
+            },
+            "12": {
+                "percentage": 16.83,
+                "top_down_percentile": 41.69
+            },
+            "11": {
+                "percentage": 16.64,
+                "top_down_percentile": 58.33
+            },
+            "10": {
+                "percentage": 14.32,
+                "top_down_percentile": 72.65
+            },
+            "9": {
+                "percentage": 10.35,
+                "top_down_percentile": 83.0
+            },
+            "8": {
+                "percentage": 6.67,
+                "top_down_percentile": 89.67
+            },
+            "7": {
+                "percentage": 4.16,
+                "top_down_percentile": 93.83
+            },
+            "6": {
+                "percentage": 2.6,
+                "top_down_percentile": 96.43
+            },
+            "5": {
+                "percentage": 1.67,
+                "top_down_percentile": 98.1
+            },
+            "4": {
+                "percentage": 1.0,
+                "top_down_percentile": 99.1
+            },
+            "3": {
+                "percentage": 0.7,
+                "top_down_percentile": 99.8
+            },
+            "2": {
+                "percentage": 0.2,
+                "top_down_percentile": 100.0
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.02
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 3.89,
+                "top_down_percentile": 3.89
+            },
+            "14": {
+                "percentage": 6.53,
+                "top_down_percentile": 10.42
+            },
+            "13": {
+                "percentage": 7.39,
+                "top_down_percentile": 17.81
+            },
+            "12": {
+                "percentage": 8.09,
+                "top_down_percentile": 25.9
+            },
+            "11": {
+                "percentage": 8.12,
+                "top_down_percentile": 34.02
+            },
+            "10": {
+                "percentage": 7.78,
+                "top_down_percentile": 41.8
+            },
+            "9": {
+                "percentage": 7.53,
+                "top_down_percentile": 49.33
+            },
+            "8": {
+                "percentage": 7.24,
+                "top_down_percentile": 56.57
+            },
+            "7": {
+                "percentage": 7.21,
+                "top_down_percentile": 63.78
+            },
+            "6": {
+                "percentage": 7.66,
+                "top_down_percentile": 71.44
+            },
+            "5": {
+                "percentage": 8.84,
+                "top_down_percentile": 80.28
+            },
+            "4": {
+                "percentage": 9.91,
+                "top_down_percentile": 90.19
+            },
+            "3": {
+                "percentage": 7.99,
+                "top_down_percentile": 98.18
+            },
+            "2": {
+                "percentage": 1.76,
+                "top_down_percentile": 99.94
+            },
+            "1": {
+                "percentage": 0.05,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            }
+        },
+        "數學": {
+            "15": {
+                "percentage": 1.26,
+                "top_down_percentile": 1.26
+            },
+            "14": {
+                "percentage": 1.57,
+                "top_down_percentile": 2.83
+            },
+            "13": {
+                "percentage": 2.51,
+                "top_down_percentile": 5.34
+            },
+            "12": {
+                "percentage": 3.41,
+                "top_down_percentile": 8.75
+            },
+            "11": {
+                "percentage": 4.57,
+                "top_down_percentile": 13.32
+            },
+            "10": {
+                "percentage": 5.71,
+                "top_down_percentile": 19.03
+            },
+            "9": {
+                "percentage": 7.05,
+                "top_down_percentile": 26.08
+            },
+            "8": {
+                "percentage": 8.58,
+                "top_down_percentile": 34.66
+            },
+            "7": {
+                "percentage": 10.16,
+                "top_down_percentile": 44.82
+            },
+            "6": {
+                "percentage": 11.88,
+                "top_down_percentile": 56.7
+            },
+            "5": {
+                "percentage": 13.05,
+                "top_down_percentile": 69.75
+            },
+            "4": {
+                "percentage": 12.4,
+                "top_down_percentile": 82.15
+            },
+            "3": {
+                "percentage": 10.14,
+                "top_down_percentile": 92.29
+            },
+            "2": {
+                "percentage": 6.24,
+                "top_down_percentile": 98.53
+            },
+            "1": {
+                "percentage": 1.42,
+                "top_down_percentile": 99.95
+            },
+            "0": {
+                "percentage": 0.04,
+                "top_down_percentile": 99.99
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 2.48,
+                "top_down_percentile": 2.48
+            },
+            "14": {
+                "percentage": 5.19,
+                "top_down_percentile": 7.67
+            },
+            "13": {
+                "percentage": 11.32,
+                "top_down_percentile": 18.99
+            },
+            "12": {
+                "percentage": 11.88,
+                "top_down_percentile": 30.87
+            },
+            "11": {
+                "percentage": 13.32,
+                "top_down_percentile": 44.19
+            },
+            "10": {
+                "percentage": 13.43,
+                "top_down_percentile": 57.62
+            },
+            "9": {
+                "percentage": 12.44,
+                "top_down_percentile": 70.06
+            },
+            "8": {
+                "percentage": 10.78,
+                "top_down_percentile": 80.84
+            },
+            "7": {
+                "percentage": 10.28,
+                "top_down_percentile": 91.12
+            },
+            "6": {
+                "percentage": 5.23,
+                "top_down_percentile": 96.35
+            },
+            "5": {
+                "percentage": 2.8,
+                "top_down_percentile": 99.15
+            },
+            "4": {
+                "percentage": 0.74,
+                "top_down_percentile": 99.89
+            },
+            "3": {
+                "percentage": 0.1,
+                "top_down_percentile": 99.99
+            },
+            "2": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            },
+            "1": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.0
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 4.34,
+                "top_down_percentile": 4.34
+            },
+            "14": {
+                "percentage": 6.22,
+                "top_down_percentile": 10.56
+            },
+            "13": {
+                "percentage": 6.83,
+                "top_down_percentile": 17.39
+            },
+            "12": {
+                "percentage": 7.7,
+                "top_down_percentile": 25.09
+            },
+            "11": {
+                "percentage": 8.11,
+                "top_down_percentile": 33.2
+            },
+            "10": {
+                "percentage": 8.0,
+                "top_down_percentile": 41.2
+            },
+            "9": {
+                "percentage": 8.36,
+                "top_down_percentile": 49.56
+            },
+            "8": {
+                "percentage": 9.36,
+                "top_down_percentile": 58.92
+            },
+            "7": {
+                "percentage": 10.14,
+                "top_down_percentile": 69.06
+            },
+            "6": {
+                "percentage": 12.04,
+                "top_down_percentile": 81.1
+            },
+            "5": {
+                "percentage": 10.63,
+                "top_down_percentile": 91.73
+            },
+            "4": {
+                "percentage": 6.48,
+                "top_down_percentile": 98.21
+            },
+            "3": {
+                "percentage": 1.67,
+                "top_down_percentile": 99.88
+            },
+            "2": {
+                "percentage": 0.1,
+                "top_down_percentile": 99.98
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            }
+        }
+    },
+    "111": {
+        "國文": {
+            "15": {
+                "percentage": 2.47,
+                "top_down_percentile": 2.47
+            },
+            "14": {
+                "percentage": 5.44,
+                "top_down_percentile": 7.91
+            },
+            "13": {
+                "percentage": 10.52,
+                "top_down_percentile": 18.43
+            },
+            "12": {
+                "percentage": 14.33,
+                "top_down_percentile": 32.76
+            },
+            "11": {
+                "percentage": 16.55,
+                "top_down_percentile": 49.31
+            },
+            "10": {
+                "percentage": 16.37,
+                "top_down_percentile": 65.68
+            },
+            "9": {
+                "percentage": 12.64,
+                "top_down_percentile": 78.32
+            },
+            "8": {
+                "percentage": 8.9,
+                "top_down_percentile": 87.22
+            },
+            "7": {
+                "percentage": 5.25,
+                "top_down_percentile": 92.47
+            },
+            "6": {
+                "percentage": 3.1,
+                "top_down_percentile": 95.57
+            },
+            "5": {
+                "percentage": 1.95,
+                "top_down_percentile": 97.52
+            },
+            "4": {
+                "percentage": 1.2,
+                "top_down_percentile": 98.72
+            },
+            "3": {
+                "percentage": 0.82,
+                "top_down_percentile": 99.54
+            },
+            "2": {
+                "percentage": 0.44,
+                "top_down_percentile": 99.98
+            },
+            "1": {
+                "percentage": 0.02,
+                "top_down_percentile": 100.0
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 3.26,
+                "top_down_percentile": 3.26
+            },
+            "14": {
+                "percentage": 6.08,
+                "top_down_percentile": 9.34
+            },
+            "13": {
+                "percentage": 7.86,
+                "top_down_percentile": 17.2
+            },
+            "12": {
+                "percentage": 8.45,
+                "top_down_percentile": 25.65
+            },
+            "11": {
+                "percentage": 8.14,
+                "top_down_percentile": 33.79
+            },
+            "10": {
+                "percentage": 7.93,
+                "top_down_percentile": 41.72
+            },
+            "9": {
+                "percentage": 7.57,
+                "top_down_percentile": 49.29
+            },
+            "8": {
+                "percentage": 7.61,
+                "top_down_percentile": 56.9
+            },
+            "7": {
+                "percentage": 7.47,
+                "top_down_percentile": 64.37
+            },
+            "6": {
+                "percentage": 7.89,
+                "top_down_percentile": 72.26
+            },
+            "5": {
+                "percentage": 8.26,
+                "top_down_percentile": 80.52
+            },
+            "4": {
+                "percentage": 8.74,
+                "top_down_percentile": 89.26
+            },
+            "3": {
+                "percentage": 8.01,
+                "top_down_percentile": 97.27
+            },
+            "2": {
+                "percentage": 2.59,
+                "top_down_percentile": 99.86
+            },
+            "1": {
+                "percentage": 0.14,
+                "top_down_percentile": 100.0
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            }
+        },
+        "數學A": {
+            "15": {
+                "percentage": 0.99,
+                "top_down_percentile": 0.99
+            },
+            "14": {
+                "percentage": 0.98,
+                "top_down_percentile": 1.97
+            },
+            "13": {
+                "percentage": 1.9,
+                "top_down_percentile": 3.87
+            },
+            "12": {
+                "percentage": 2.37,
+                "top_down_percentile": 6.24
+            },
+            "11": {
+                "percentage": 3.86,
+                "top_down_percentile": 10.1
+            },
+            "10": {
+                "percentage": 4.68,
+                "top_down_percentile": 14.78
+            },
+            "9": {
+                "percentage": 7.11,
+                "top_down_percentile": 21.89
+            },
+            "8": {
+                "percentage": 9.37,
+                "top_down_percentile": 31.26
+            },
+            "7": {
+                "percentage": 9.49,
+                "top_down_percentile": 40.75
+            },
+            "6": {
+                "percentage": 13.41,
+                "top_down_percentile": 54.16
+            },
+            "5": {
+                "percentage": 12.62,
+                "top_down_percentile": 66.78
+            },
+            "4": {
+                "percentage": 15.05,
+                "top_down_percentile": 81.83
+            },
+            "3": {
+                "percentage": 10.1,
+                "top_down_percentile": 91.93
+            },
+            "2": {
+                "percentage": 6.71,
+                "top_down_percentile": 98.64
+            },
+            "1": {
+                "percentage": 1.32,
+                "top_down_percentile": 99.96
+            },
+            "0": {
+                "percentage": 0.03,
+                "top_down_percentile": 99.99
+            }
+        },
+        "數學B": {
+            "15": {
+                "percentage": 3.32,
+                "top_down_percentile": 3.32
+            },
+            "14": {
+                "percentage": 5.21,
+                "top_down_percentile": 8.53
+            },
+            "13": {
+                "percentage": 6.06,
+                "top_down_percentile": 14.59
+            },
+            "12": {
+                "percentage": 8.09,
+                "top_down_percentile": 22.68
+            },
+            "11": {
+                "percentage": 8.12,
+                "top_down_percentile": 30.8
+            },
+            "10": {
+                "percentage": 6.49,
+                "top_down_percentile": 37.29
+            },
+            "9": {
+                "percentage": 7.17,
+                "top_down_percentile": 44.46
+            },
+            "8": {
+                "percentage": 5.9,
+                "top_down_percentile": 50.36
+            },
+            "7": {
+                "percentage": 7.04,
+                "top_down_percentile": 57.4
+            },
+            "6": {
+                "percentage": 7.77,
+                "top_down_percentile": 65.17
+            },
+            "5": {
+                "percentage": 7.91,
+                "top_down_percentile": 73.08
+            },
+            "4": {
+                "percentage": 10.16,
+                "top_down_percentile": 83.24
+            },
+            "3": {
+                "percentage": 8.71,
+                "top_down_percentile": 91.95
+            },
+            "2": {
+                "percentage": 6.43,
+                "top_down_percentile": 98.38
+            },
+            "1": {
+                "percentage": 1.59,
+                "top_down_percentile": 99.97
+            },
+            "0": {
+                "percentage": 0.03,
+                "top_down_percentile": 100.0
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 2.81,
+                "top_down_percentile": 2.81
+            },
+            "14": {
+                "percentage": 7.78,
+                "top_down_percentile": 10.59
+            },
+            "13": {
+                "percentage": 14.01,
+                "top_down_percentile": 24.6
+            },
+            "12": {
+                "percentage": 18.92,
+                "top_down_percentile": 43.52
+            },
+            "11": {
+                "percentage": 15.97,
+                "top_down_percentile": 59.49
+            },
+            "10": {
+                "percentage": 12.79,
+                "top_down_percentile": 72.28
+            },
+            "9": {
+                "percentage": 8.77,
+                "top_down_percentile": 81.05
+            },
+            "8": {
+                "percentage": 6.87,
+                "top_down_percentile": 87.92
+            },
+            "7": {
+                "percentage": 4.46,
+                "top_down_percentile": 92.38
+            },
+            "6": {
+                "percentage": 3.22,
+                "top_down_percentile": 95.6
+            },
+            "5": {
+                "percentage": 2.45,
+                "top_down_percentile": 98.05
+            },
+            "4": {
+                "percentage": 1.53,
+                "top_down_percentile": 99.58
+            },
+            "3": {
+                "percentage": 0.36,
+                "top_down_percentile": 99.94
+            },
+            "2": {
+                "percentage": 0.04,
+                "top_down_percentile": 99.98
+            },
+            "1": {
+                "percentage": 0.0,
+                "top_down_percentile": 99.98
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 99.99
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 4.32,
+                "top_down_percentile": 4.32
+            },
+            "14": {
+                "percentage": 8.26,
+                "top_down_percentile": 12.58
+            },
+            "13": {
+                "percentage": 10.4,
+                "top_down_percentile": 22.98
+            },
+            "12": {
+                "percentage": 11.26,
+                "top_down_percentile": 34.24
+            },
+            "11": {
+                "percentage": 10.42,
+                "top_down_percentile": 44.66
+            },
+            "10": {
+                "percentage": 9.7,
+                "top_down_percentile": 54.36
+            },
+            "9": {
+                "percentage": 8.76,
+                "top_down_percentile": 63.12
+            },
+            "8": {
+                "percentage": 8.11,
+                "top_down_percentile": 71.23
+            },
+            "7": {
+                "percentage": 7.21,
+                "top_down_percentile": 78.44
+            },
+            "6": {
+                "percentage": 6.59,
+                "top_down_percentile": 85.03
+            },
+            "5": {
+                "percentage": 6.24,
+                "top_down_percentile": 91.27
+            },
+            "4": {
+                "percentage": 5.53,
+                "top_down_percentile": 96.8
+            },
+            "3": {
+                "percentage": 2.85,
+                "top_down_percentile": 99.65
+            },
+            "2": {
+                "percentage": 0.34,
+                "top_down_percentile": 99.99
+            },
+            "1": {
+                "percentage": 0.02,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.01
+            }
+        }
+    },
+    "112": {
+        "國文": {
+            "15": {
+                "percentage": 2.55,
+                "top_down_percentile": 2.55
+            },
+            "14": {
+                "percentage": 6.45,
+                "top_down_percentile": 9.0
+            },
+            "13": {
+                "percentage": 12.43,
+                "top_down_percentile": 21.43
+            },
+            "12": {
+                "percentage": 17.23,
+                "top_down_percentile": 38.66
+            },
+            "11": {
+                "percentage": 18.29,
+                "top_down_percentile": 56.95
+            },
+            "10": {
+                "percentage": 14.66,
+                "top_down_percentile": 71.61
+            },
+            "9": {
+                "percentage": 10.3,
+                "top_down_percentile": 81.91
+            },
+            "8": {
+                "percentage": 6.69,
+                "top_down_percentile": 88.6
+            },
+            "7": {
+                "percentage": 4.38,
+                "top_down_percentile": 92.98
+            },
+            "6": {
+                "percentage": 2.78,
+                "top_down_percentile": 95.76
+            },
+            "5": {
+                "percentage": 1.74,
+                "top_down_percentile": 97.5
+            },
+            "4": {
+                "percentage": 1.11,
+                "top_down_percentile": 98.61
+            },
+            "3": {
+                "percentage": 0.88,
+                "top_down_percentile": 99.49
+            },
+            "2": {
+                "percentage": 0.49,
+                "top_down_percentile": 99.98
+            },
+            "1": {
+                "percentage": 0.03,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.02
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 2.96,
+                "top_down_percentile": 2.96
+            },
+            "14": {
+                "percentage": 4.48,
+                "top_down_percentile": 7.44
+            },
+            "13": {
+                "percentage": 5.99,
+                "top_down_percentile": 13.43
+            },
+            "12": {
+                "percentage": 6.7,
+                "top_down_percentile": 20.13
+            },
+            "11": {
+                "percentage": 7.58,
+                "top_down_percentile": 27.71
+            },
+            "10": {
+                "percentage": 7.74,
+                "top_down_percentile": 35.45
+            },
+            "9": {
+                "percentage": 8.3,
+                "top_down_percentile": 43.75
+            },
+            "8": {
+                "percentage": 8.03,
+                "top_down_percentile": 51.78
+            },
+            "7": {
+                "percentage": 8.33,
+                "top_down_percentile": 60.11
+            },
+            "6": {
+                "percentage": 8.45,
+                "top_down_percentile": 68.56
+            },
+            "5": {
+                "percentage": 9.45,
+                "top_down_percentile": 78.01
+            },
+            "4": {
+                "percentage": 10.09,
+                "top_down_percentile": 88.1
+            },
+            "3": {
+                "percentage": 9.04,
+                "top_down_percentile": 97.14
+            },
+            "2": {
+                "percentage": 2.72,
+                "top_down_percentile": 99.86
+            },
+            "1": {
+                "percentage": 0.14,
+                "top_down_percentile": 100.0
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            }
+        },
+        "數學A": {
+            "15": {
+                "percentage": 1.54,
+                "top_down_percentile": 1.54
+            },
+            "14": {
+                "percentage": 2.44,
+                "top_down_percentile": 3.98
+            },
+            "13": {
+                "percentage": 3.13,
+                "top_down_percentile": 7.11
+            },
+            "12": {
+                "percentage": 4.25,
+                "top_down_percentile": 11.36
+            },
+            "11": {
+                "percentage": 6.23,
+                "top_down_percentile": 17.59
+            },
+            "10": {
+                "percentage": 6.79,
+                "top_down_percentile": 24.38
+            },
+            "9": {
+                "percentage": 8.3,
+                "top_down_percentile": 32.68
+            },
+            "8": {
+                "percentage": 11.7,
+                "top_down_percentile": 44.38
+            },
+            "7": {
+                "percentage": 11.45,
+                "top_down_percentile": 55.83
+            },
+            "6": {
+                "percentage": 14.14,
+                "top_down_percentile": 69.97
+            },
+            "5": {
+                "percentage": 11.2,
+                "top_down_percentile": 81.17
+            },
+            "4": {
+                "percentage": 8.9,
+                "top_down_percentile": 90.07
+            },
+            "3": {
+                "percentage": 6.54,
+                "top_down_percentile": 96.61
+            },
+            "2": {
+                "percentage": 2.65,
+                "top_down_percentile": 99.26
+            },
+            "1": {
+                "percentage": 0.73,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.02,
+                "top_down_percentile": 100.01
+            }
+        },
+        "數學B": {
+            "15": {
+                "percentage": 1.78,
+                "top_down_percentile": 1.78
+            },
+            "14": {
+                "percentage": 2.98,
+                "top_down_percentile": 4.76
+            },
+            "13": {
+                "percentage": 4.04,
+                "top_down_percentile": 8.8
+            },
+            "12": {
+                "percentage": 5.29,
+                "top_down_percentile": 14.09
+            },
+            "11": {
+                "percentage": 7.66,
+                "top_down_percentile": 21.75
+            },
+            "10": {
+                "percentage": 7.48,
+                "top_down_percentile": 29.23
+            },
+            "9": {
+                "percentage": 7.76,
+                "top_down_percentile": 36.99
+            },
+            "8": {
+                "percentage": 9.38,
+                "top_down_percentile": 46.37
+            },
+            "7": {
+                "percentage": 8.39,
+                "top_down_percentile": 54.76
+            },
+            "6": {
+                "percentage": 10.0,
+                "top_down_percentile": 64.76
+            },
+            "5": {
+                "percentage": 9.45,
+                "top_down_percentile": 74.21
+            },
+            "4": {
+                "percentage": 9.47,
+                "top_down_percentile": 83.68
+            },
+            "3": {
+                "percentage": 9.77,
+                "top_down_percentile": 93.45
+            },
+            "2": {
+                "percentage": 4.98,
+                "top_down_percentile": 98.43
+            },
+            "1": {
+                "percentage": 1.49,
+                "top_down_percentile": 99.92
+            },
+            "0": {
+                "percentage": 0.08,
+                "top_down_percentile": 100.0
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 1.85,
+                "top_down_percentile": 1.85
+            },
+            "14": {
+                "percentage": 3.66,
+                "top_down_percentile": 5.51
+            },
+            "13": {
+                "percentage": 6.28,
+                "top_down_percentile": 11.79
+            },
+            "12": {
+                "percentage": 10.06,
+                "top_down_percentile": 21.85
+            },
+            "11": {
+                "percentage": 13.08,
+                "top_down_percentile": 34.93
+            },
+            "10": {
+                "percentage": 14.26,
+                "top_down_percentile": 49.19
+            },
+            "9": {
+                "percentage": 14.57,
+                "top_down_percentile": 63.76
+            },
+            "8": {
+                "percentage": 12.36,
+                "top_down_percentile": 76.12
+            },
+            "7": {
+                "percentage": 8.88,
+                "top_down_percentile": 85.0
+            },
+            "6": {
+                "percentage": 7.08,
+                "top_down_percentile": 92.08
+            },
+            "5": {
+                "percentage": 4.95,
+                "top_down_percentile": 97.03
+            },
+            "4": {
+                "percentage": 2.36,
+                "top_down_percentile": 99.39
+            },
+            "3": {
+                "percentage": 0.54,
+                "top_down_percentile": 99.93
+            },
+            "2": {
+                "percentage": 0.04,
+                "top_down_percentile": 99.97
+            },
+            "1": {
+                "percentage": 0.0,
+                "top_down_percentile": 99.97
+            },
+            "0": {
+                "percentage": 0.02,
+                "top_down_percentile": 99.99
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 2.14,
+                "top_down_percentile": 2.14
+            },
+            "14": {
+                "percentage": 4.08,
+                "top_down_percentile": 6.22
+            },
+            "13": {
+                "percentage": 6.87,
+                "top_down_percentile": 13.09
+            },
+            "12": {
+                "percentage": 8.94,
+                "top_down_percentile": 22.03
+            },
+            "11": {
+                "percentage": 10.11,
+                "top_down_percentile": 32.14
+            },
+            "10": {
+                "percentage": 10.73,
+                "top_down_percentile": 42.87
+            },
+            "9": {
+                "percentage": 10.57,
+                "top_down_percentile": 53.44
+            },
+            "8": {
+                "percentage": 9.82,
+                "top_down_percentile": 63.26
+            },
+            "7": {
+                "percentage": 9.08,
+                "top_down_percentile": 72.34
+            },
+            "6": {
+                "percentage": 8.58,
+                "top_down_percentile": 80.92
+            },
+            "5": {
+                "percentage": 7.92,
+                "top_down_percentile": 88.84
+            },
+            "4": {
+                "percentage": 6.99,
+                "top_down_percentile": 95.83
+            },
+            "3": {
+                "percentage": 3.69,
+                "top_down_percentile": 99.52
+            },
+            "2": {
+                "percentage": 0.45,
+                "top_down_percentile": 99.97
+            },
+            "1": {
+                "percentage": 0.02,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            }
+        }
+    },
+    "113": {
+        "國文": {
+            "15": {
+                "percentage": 2.54,
+                "top_down_percentile": 2.54
+            },
+            "14": {
+                "percentage": 6.69,
+                "top_down_percentile": 9.23
+            },
+            "13": {
+                "percentage": 13.0,
+                "top_down_percentile": 22.23
+            },
+            "12": {
+                "percentage": 17.4,
+                "top_down_percentile": 39.63
+            },
+            "11": {
+                "percentage": 17.59,
+                "top_down_percentile": 57.22
+            },
+            "10": {
+                "percentage": 15.08,
+                "top_down_percentile": 72.3
+            },
+            "9": {
+                "percentage": 10.38,
+                "top_down_percentile": 82.68
+            },
+            "8": {
+                "percentage": 6.43,
+                "top_down_percentile": 89.11
+            },
+            "7": {
+                "percentage": 4.12,
+                "top_down_percentile": 93.23
+            },
+            "6": {
+                "percentage": 2.57,
+                "top_down_percentile": 95.8
+            },
+            "5": {
+                "percentage": 1.71,
+                "top_down_percentile": 97.51
+            },
+            "4": {
+                "percentage": 1.15,
+                "top_down_percentile": 98.66
+            },
+            "3": {
+                "percentage": 0.8,
+                "top_down_percentile": 99.46
+            },
+            "2": {
+                "percentage": 0.5,
+                "top_down_percentile": 99.96
+            },
+            "1": {
+                "percentage": 0.03,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 99.99
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 3.14,
+                "top_down_percentile": 3.14
+            },
+            "14": {
+                "percentage": 4.81,
+                "top_down_percentile": 7.95
+            },
+            "13": {
+                "percentage": 6.18,
+                "top_down_percentile": 14.13
+            },
+            "12": {
+                "percentage": 6.81,
+                "top_down_percentile": 20.94
+            },
+            "11": {
+                "percentage": 7.06,
+                "top_down_percentile": 28.0
+            },
+            "10": {
+                "percentage": 7.11,
+                "top_down_percentile": 35.11
+            },
+            "9": {
+                "percentage": 7.69,
+                "top_down_percentile": 42.8
+            },
+            "8": {
+                "percentage": 8.03,
+                "top_down_percentile": 50.83
+            },
+            "7": {
+                "percentage": 8.58,
+                "top_down_percentile": 59.41
+            },
+            "6": {
+                "percentage": 8.86,
+                "top_down_percentile": 68.27
+            },
+            "5": {
+                "percentage": 9.12,
+                "top_down_percentile": 77.39
+            },
+            "4": {
+                "percentage": 9.9,
+                "top_down_percentile": 87.29
+            },
+            "3": {
+                "percentage": 9.47,
+                "top_down_percentile": 96.76
+            },
+            "2": {
+                "percentage": 3.07,
+                "top_down_percentile": 99.83
+            },
+            "1": {
+                "percentage": 0.15,
+                "top_down_percentile": 99.98
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 99.99
+            }
+        },
+        "數學A": {
+            "15": {
+                "percentage": 1.5,
+                "top_down_percentile": 1.5
+            },
+            "14": {
+                "percentage": 2.17,
+                "top_down_percentile": 3.67
+            },
+            "13": {
+                "percentage": 3.62,
+                "top_down_percentile": 7.29
+            },
+            "12": {
+                "percentage": 5.69,
+                "top_down_percentile": 12.98
+            },
+            "11": {
+                "percentage": 6.07,
+                "top_down_percentile": 19.05
+            },
+            "10": {
+                "percentage": 7.09,
+                "top_down_percentile": 26.14
+            },
+            "9": {
+                "percentage": 8.03,
+                "top_down_percentile": 34.17
+            },
+            "8": {
+                "percentage": 8.77,
+                "top_down_percentile": 42.94
+            },
+            "7": {
+                "percentage": 9.67,
+                "top_down_percentile": 52.61
+            },
+            "6": {
+                "percentage": 11.95,
+                "top_down_percentile": 64.56
+            },
+            "5": {
+                "percentage": 10.58,
+                "top_down_percentile": 75.14
+            },
+            "4": {
+                "percentage": 10.65,
+                "top_down_percentile": 85.79
+            },
+            "3": {
+                "percentage": 8.86,
+                "top_down_percentile": 94.65
+            },
+            "2": {
+                "percentage": 4.39,
+                "top_down_percentile": 99.04
+            },
+            "1": {
+                "percentage": 0.91,
+                "top_down_percentile": 99.95
+            },
+            "0": {
+                "percentage": 0.02,
+                "top_down_percentile": 99.97
+            }
+        },
+        "數學B": {
+            "15": {
+                "percentage": 1.35,
+                "top_down_percentile": 1.35
+            },
+            "14": {
+                "percentage": 2.69,
+                "top_down_percentile": 4.04
+            },
+            "13": {
+                "percentage": 3.6,
+                "top_down_percentile": 7.64
+            },
+            "12": {
+                "percentage": 4.48,
+                "top_down_percentile": 12.12
+            },
+            "11": {
+                "percentage": 5.2,
+                "top_down_percentile": 17.32
+            },
+            "10": {
+                "percentage": 6.03,
+                "top_down_percentile": 23.35
+            },
+            "9": {
+                "percentage": 6.9,
+                "top_down_percentile": 30.25
+            },
+            "8": {
+                "percentage": 7.69,
+                "top_down_percentile": 37.94
+            },
+            "7": {
+                "percentage": 10.32,
+                "top_down_percentile": 48.26
+            },
+            "6": {
+                "percentage": 9.98,
+                "top_down_percentile": 58.24
+            },
+            "5": {
+                "percentage": 10.57,
+                "top_down_percentile": 68.81
+            },
+            "4": {
+                "percentage": 11.0,
+                "top_down_percentile": 79.81
+            },
+            "3": {
+                "percentage": 10.41,
+                "top_down_percentile": 90.22
+            },
+            "2": {
+                "percentage": 7.19,
+                "top_down_percentile": 97.41
+            },
+            "1": {
+                "percentage": 2.51,
+                "top_down_percentile": 99.92
+            },
+            "0": {
+                "percentage": 0.08,
+                "top_down_percentile": 100.0
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 2.48,
+                "top_down_percentile": 2.48
+            },
+            "14": {
+                "percentage": 5.16,
+                "top_down_percentile": 7.64
+            },
+            "13": {
+                "percentage": 8.76,
+                "top_down_percentile": 16.4
+            },
+            "12": {
+                "percentage": 11.84,
+                "top_down_percentile": 28.24
+            },
+            "11": {
+                "percentage": 13.9,
+                "top_down_percentile": 42.14
+            },
+            "10": {
+                "percentage": 13.62,
+                "top_down_percentile": 55.76
+            },
+            "9": {
+                "percentage": 12.21,
+                "top_down_percentile": 67.97
+            },
+            "8": {
+                "percentage": 11.02,
+                "top_down_percentile": 78.99
+            },
+            "7": {
+                "percentage": 7.57,
+                "top_down_percentile": 86.56
+            },
+            "6": {
+                "percentage": 5.55,
+                "top_down_percentile": 92.11
+            },
+            "5": {
+                "percentage": 4.08,
+                "top_down_percentile": 96.19
+            },
+            "4": {
+                "percentage": 2.66,
+                "top_down_percentile": 98.85
+            },
+            "3": {
+                "percentage": 0.99,
+                "top_down_percentile": 99.84
+            },
+            "2": {
+                "percentage": 0.14,
+                "top_down_percentile": 99.98
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 3.48,
+                "top_down_percentile": 3.48
+            },
+            "14": {
+                "percentage": 6.12,
+                "top_down_percentile": 9.6
+            },
+            "13": {
+                "percentage": 8.06,
+                "top_down_percentile": 17.66
+            },
+            "12": {
+                "percentage": 8.85,
+                "top_down_percentile": 26.51
+            },
+            "11": {
+                "percentage": 9.78,
+                "top_down_percentile": 36.29
+            },
+            "10": {
+                "percentage": 9.8,
+                "top_down_percentile": 46.09
+            },
+            "9": {
+                "percentage": 9.94,
+                "top_down_percentile": 56.03
+            },
+            "8": {
+                "percentage": 9.62,
+                "top_down_percentile": 65.65
+            },
+            "7": {
+                "percentage": 9.05,
+                "top_down_percentile": 74.7
+            },
+            "6": {
+                "percentage": 8.71,
+                "top_down_percentile": 83.41
+            },
+            "5": {
+                "percentage": 7.84,
+                "top_down_percentile": 91.25
+            },
+            "4": {
+                "percentage": 5.74,
+                "top_down_percentile": 96.99
+            },
+            "3": {
+                "percentage": 2.63,
+                "top_down_percentile": 99.62
+            },
+            "2": {
+                "percentage": 0.36,
+                "top_down_percentile": 99.98
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            }
+        }
+    },
+    "114": {
+        "國文": {
+            "15": {
+                "percentage": 2.32,
+                "top_down_percentile": 2.32
+            },
+            "14": {
+                "percentage": 5.43,
+                "top_down_percentile": 7.75
+            },
+            "13": {
+                "percentage": 10.06,
+                "top_down_percentile": 17.81
+            },
+            "12": {
+                "percentage": 14.07,
+                "top_down_percentile": 31.88
+            },
+            "11": {
+                "percentage": 15.65,
+                "top_down_percentile": 47.53
+            },
+            "10": {
+                "percentage": 15.38,
+                "top_down_percentile": 62.91
+            },
+            "9": {
+                "percentage": 12.46,
+                "top_down_percentile": 75.37
+            },
+            "8": {
+                "percentage": 8.92,
+                "top_down_percentile": 84.29
+            },
+            "7": {
+                "percentage": 6.1,
+                "top_down_percentile": 90.39
+            },
+            "6": {
+                "percentage": 3.96,
+                "top_down_percentile": 94.35
+            },
+            "5": {
+                "percentage": 2.43,
+                "top_down_percentile": 96.78
+            },
+            "4": {
+                "percentage": 1.5,
+                "top_down_percentile": 98.28
+            },
+            "3": {
+                "percentage": 1.05,
+                "top_down_percentile": 99.33
+            },
+            "2": {
+                "percentage": 0.63,
+                "top_down_percentile": 99.96
+            },
+            "1": {
+                "percentage": 0.03,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 3.29,
+                "top_down_percentile": 3.29
+            },
+            "14": {
+                "percentage": 5.57,
+                "top_down_percentile": 8.86
+            },
+            "13": {
+                "percentage": 6.85,
+                "top_down_percentile": 15.71
+            },
+            "12": {
+                "percentage": 7.44,
+                "top_down_percentile": 23.15
+            },
+            "11": {
+                "percentage": 7.31,
+                "top_down_percentile": 30.46
+            },
+            "10": {
+                "percentage": 7.09,
+                "top_down_percentile": 37.55
+            },
+            "9": {
+                "percentage": 7.04,
+                "top_down_percentile": 44.59
+            },
+            "8": {
+                "percentage": 6.8,
+                "top_down_percentile": 51.39
+            },
+            "7": {
+                "percentage": 6.95,
+                "top_down_percentile": 58.34
+            },
+            "6": {
+                "percentage": 7.49,
+                "top_down_percentile": 65.83
+            },
+            "5": {
+                "percentage": 8.75,
+                "top_down_percentile": 74.58
+            },
+            "4": {
+                "percentage": 10.2,
+                "top_down_percentile": 84.78
+            },
+            "3": {
+                "percentage": 10.82,
+                "top_down_percentile": 95.6
+            },
+            "2": {
+                "percentage": 4.19,
+                "top_down_percentile": 99.79
+            },
+            "1": {
+                "percentage": 0.2,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            }
+        },
+        "數學A": {
+            "15": {
+                "percentage": 1.35,
+                "top_down_percentile": 1.35
+            },
+            "14": {
+                "percentage": 1.63,
+                "top_down_percentile": 2.98
+            },
+            "13": {
+                "percentage": 2.65,
+                "top_down_percentile": 5.63
+            },
+            "12": {
+                "percentage": 3.73,
+                "top_down_percentile": 9.36
+            },
+            "11": {
+                "percentage": 4.93,
+                "top_down_percentile": 14.29
+            },
+            "10": {
+                "percentage": 5.9,
+                "top_down_percentile": 20.19
+            },
+            "9": {
+                "percentage": 7.27,
+                "top_down_percentile": 27.46
+            },
+            "8": {
+                "percentage": 9.93,
+                "top_down_percentile": 37.39
+            },
+            "7": {
+                "percentage": 9.59,
+                "top_down_percentile": 46.98
+            },
+            "6": {
+                "percentage": 10.77,
+                "top_down_percentile": 57.75
+            },
+            "5": {
+                "percentage": 12.02,
+                "top_down_percentile": 69.77
+            },
+            "4": {
+                "percentage": 12.25,
+                "top_down_percentile": 82.02
+            },
+            "3": {
+                "percentage": 10.56,
+                "top_down_percentile": 92.58
+            },
+            "2": {
+                "percentage": 5.85,
+                "top_down_percentile": 98.43
+            },
+            "1": {
+                "percentage": 1.51,
+                "top_down_percentile": 99.94
+            },
+            "0": {
+                "percentage": 0.04,
+                "top_down_percentile": 99.98
+            }
+        },
+        "數學B": {
+            "15": {
+                "percentage": 1.43,
+                "top_down_percentile": 1.43
+            },
+            "14": {
+                "percentage": 2.6,
+                "top_down_percentile": 4.03
+            },
+            "13": {
+                "percentage": 3.73,
+                "top_down_percentile": 7.76
+            },
+            "12": {
+                "percentage": 5.01,
+                "top_down_percentile": 12.77
+            },
+            "11": {
+                "percentage": 6.83,
+                "top_down_percentile": 19.6
+            },
+            "10": {
+                "percentage": 6.66,
+                "top_down_percentile": 26.26
+            },
+            "9": {
+                "percentage": 6.77,
+                "top_down_percentile": 33.03
+            },
+            "8": {
+                "percentage": 6.96,
+                "top_down_percentile": 39.99
+            },
+            "7": {
+                "percentage": 8.38,
+                "top_down_percentile": 48.37
+            },
+            "6": {
+                "percentage": 7.9,
+                "top_down_percentile": 56.27
+            },
+            "5": {
+                "percentage": 8.72,
+                "top_down_percentile": 64.99
+            },
+            "4": {
+                "percentage": 12.88,
+                "top_down_percentile": 77.87
+            },
+            "3": {
+                "percentage": 11.55,
+                "top_down_percentile": 89.42
+            },
+            "2": {
+                "percentage": 8.09,
+                "top_down_percentile": 97.51
+            },
+            "1": {
+                "percentage": 2.41,
+                "top_down_percentile": 99.92
+            },
+            "0": {
+                "percentage": 0.09,
+                "top_down_percentile": 100.01
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 1.88,
+                "top_down_percentile": 1.88
+            },
+            "14": {
+                "percentage": 4.25,
+                "top_down_percentile": 6.13
+            },
+            "13": {
+                "percentage": 7.48,
+                "top_down_percentile": 13.61
+            },
+            "12": {
+                "percentage": 11.43,
+                "top_down_percentile": 25.04
+            },
+            "11": {
+                "percentage": 14.69,
+                "top_down_percentile": 39.73
+            },
+            "10": {
+                "percentage": 14.03,
+                "top_down_percentile": 53.76
+            },
+            "9": {
+                "percentage": 14.27,
+                "top_down_percentile": 68.03
+            },
+            "8": {
+                "percentage": 12.0,
+                "top_down_percentile": 80.03
+            },
+            "7": {
+                "percentage": 8.01,
+                "top_down_percentile": 88.04
+            },
+            "6": {
+                "percentage": 5.99,
+                "top_down_percentile": 94.03
+            },
+            "5": {
+                "percentage": 3.59,
+                "top_down_percentile": 97.62
+            },
+            "4": {
+                "percentage": 1.81,
+                "top_down_percentile": 99.43
+            },
+            "3": {
+                "percentage": 0.53,
+                "top_down_percentile": 99.96
+            },
+            "2": {
+                "percentage": 0.04,
+                "top_down_percentile": 100.0
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.02
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 3.46,
+                "top_down_percentile": 3.46
+            },
+            "14": {
+                "percentage": 6.84,
+                "top_down_percentile": 10.3
+            },
+            "13": {
+                "percentage": 8.99,
+                "top_down_percentile": 19.29
+            },
+            "12": {
+                "percentage": 10.0,
+                "top_down_percentile": 29.29
+            },
+            "11": {
+                "percentage": 10.37,
+                "top_down_percentile": 39.66
+            },
+            "10": {
+                "percentage": 10.02,
+                "top_down_percentile": 49.68
+            },
+            "9": {
+                "percentage": 9.38,
+                "top_down_percentile": 59.06
+            },
+            "8": {
+                "percentage": 9.31,
+                "top_down_percentile": 68.37
+            },
+            "7": {
+                "percentage": 8.61,
+                "top_down_percentile": 76.98
+            },
+            "6": {
+                "percentage": 8.32,
+                "top_down_percentile": 85.3
+            },
+            "5": {
+                "percentage": 7.18,
+                "top_down_percentile": 92.48
+            },
+            "4": {
+                "percentage": 5.17,
+                "top_down_percentile": 97.65
+            },
+            "3": {
+                "percentage": 2.09,
+                "top_down_percentile": 99.74
+            },
+            "2": {
+                "percentage": 0.25,
+                "top_down_percentile": 99.99
+            },
+            "1": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            },
+            "0": {
+                "percentage": 0.0,
+                "top_down_percentile": 100.0
+            }
+        }
+    },
+    "115": {
+        "國文": {
+            "15": {
+                "percentage": 2.17,
+                "top_down_percentile": 2.17
+            },
+            "14": {
+                "percentage": 5.01,
+                "top_down_percentile": 7.18
+            },
+            "13": {
+                "percentage": 10.0,
+                "top_down_percentile": 17.18
+            },
+            "12": {
+                "percentage": 14.72,
+                "top_down_percentile": 31.9
+            },
+            "11": {
+                "percentage": 17.39,
+                "top_down_percentile": 49.29
+            },
+            "10": {
+                "percentage": 16.42,
+                "top_down_percentile": 65.71
+            },
+            "9": {
+                "percentage": 13.09,
+                "top_down_percentile": 78.8
+            },
+            "8": {
+                "percentage": 8.86,
+                "top_down_percentile": 87.66
+            },
+            "7": {
+                "percentage": 5.25,
+                "top_down_percentile": 92.91
+            },
+            "6": {
+                "percentage": 3.0,
+                "top_down_percentile": 95.91
+            },
+            "5": {
+                "percentage": 1.73,
+                "top_down_percentile": 97.64
+            },
+            "4": {
+                "percentage": 1.04,
+                "top_down_percentile": 98.68
+            },
+            "3": {
+                "percentage": 0.79,
+                "top_down_percentile": 99.47
+            },
+            "2": {
+                "percentage": 0.49,
+                "top_down_percentile": 99.96
+            },
+            "1": {
+                "percentage": 0.04,
+                "top_down_percentile": 100.0
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.01
+            }
+        },
+        "英文": {
+            "15": {
+                "percentage": 2.76,
+                "top_down_percentile": 2.76
+            },
+            "14": {
+                "percentage": 5.48,
+                "top_down_percentile": 8.24
+            },
+            "13": {
+                "percentage": 7.47,
+                "top_down_percentile": 15.71
+            },
+            "12": {
+                "percentage": 8.01,
+                "top_down_percentile": 23.72
+            },
+            "11": {
+                "percentage": 8.09,
+                "top_down_percentile": 31.81
+            },
+            "10": {
+                "percentage": 7.73,
+                "top_down_percentile": 39.54
+            },
+            "9": {
+                "percentage": 7.44,
+                "top_down_percentile": 46.98
+            },
+            "8": {
+                "percentage": 7.24,
+                "top_down_percentile": 54.22
+            },
+            "7": {
+                "percentage": 7.09,
+                "top_down_percentile": 61.31
+            },
+            "6": {
+                "percentage": 7.35,
+                "top_down_percentile": 68.66
+            },
+            "5": {
+                "percentage": 8.0,
+                "top_down_percentile": 76.66
+            },
+            "4": {
+                "percentage": 9.67,
+                "top_down_percentile": 86.33
+            },
+            "3": {
+                "percentage": 9.79,
+                "top_down_percentile": 96.12
+            },
+            "2": {
+                "percentage": 3.69,
+                "top_down_percentile": 99.81
+            },
+            "1": {
+                "percentage": 0.2,
+                "top_down_percentile": 100.01
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.02
+            }
+        },
+        "數學A": {
+            "15": {
+                "percentage": 1.23,
+                "top_down_percentile": 1.23
+            },
+            "14": {
+                "percentage": 2.13,
+                "top_down_percentile": 3.36
+            },
+            "13": {
+                "percentage": 3.73,
+                "top_down_percentile": 7.09
+            },
+            "12": {
+                "percentage": 5.52,
+                "top_down_percentile": 12.61
+            },
+            "11": {
+                "percentage": 6.23,
+                "top_down_percentile": 18.84
+            },
+            "10": {
+                "percentage": 9.7,
+                "top_down_percentile": 28.54
+            },
+            "9": {
+                "percentage": 11.44,
+                "top_down_percentile": 39.98
+            },
+            "8": {
+                "percentage": 10.13,
+                "top_down_percentile": 50.11
+            },
+            "7": {
+                "percentage": 12.29,
+                "top_down_percentile": 62.4
+            },
+            "6": {
+                "percentage": 10.98,
+                "top_down_percentile": 73.38
+            },
+            "5": {
+                "percentage": 9.43,
+                "top_down_percentile": 82.81
+            },
+            "4": {
+                "percentage": 6.74,
+                "top_down_percentile": 89.55
+            },
+            "3": {
+                "percentage": 6.39,
+                "top_down_percentile": 95.94
+            },
+            "2": {
+                "percentage": 3.33,
+                "top_down_percentile": 99.27
+            },
+            "1": {
+                "percentage": 0.7,
+                "top_down_percentile": 99.97
+            },
+            "0": {
+                "percentage": 0.02,
+                "top_down_percentile": 99.99
+            }
+        },
+        "數學B": {
+            "15": {
+                "percentage": 1.29,
+                "top_down_percentile": 1.29
+            },
+            "14": {
+                "percentage": 2.03,
+                "top_down_percentile": 3.32
+            },
+            "13": {
+                "percentage": 2.63,
+                "top_down_percentile": 5.95
+            },
+            "12": {
+                "percentage": 3.38,
+                "top_down_percentile": 9.33
+            },
+            "11": {
+                "percentage": 4.44,
+                "top_down_percentile": 13.77
+            },
+            "10": {
+                "percentage": 6.2,
+                "top_down_percentile": 19.97
+            },
+            "9": {
+                "percentage": 6.28,
+                "top_down_percentile": 26.25
+            },
+            "8": {
+                "percentage": 7.15,
+                "top_down_percentile": 33.4
+            },
+            "7": {
+                "percentage": 7.83,
+                "top_down_percentile": 41.23
+            },
+            "6": {
+                "percentage": 8.62,
+                "top_down_percentile": 49.85
+            },
+            "5": {
+                "percentage": 11.05,
+                "top_down_percentile": 60.9
+            },
+            "4": {
+                "percentage": 11.71,
+                "top_down_percentile": 72.61
+            },
+            "3": {
+                "percentage": 13.84,
+                "top_down_percentile": 86.45
+            },
+            "2": {
+                "percentage": 9.93,
+                "top_down_percentile": 96.38
+            },
+            "1": {
+                "percentage": 3.45,
+                "top_down_percentile": 99.83
+            },
+            "0": {
+                "percentage": 0.17,
+                "top_down_percentile": 100.0
+            }
+        },
+        "社會": {
+            "15": {
+                "percentage": 1.9,
+                "top_down_percentile": 1.9
+            },
+            "14": {
+                "percentage": 4.53,
+                "top_down_percentile": 6.43
+            },
+            "13": {
+                "percentage": 8.13,
+                "top_down_percentile": 14.56
+            },
+            "12": {
+                "percentage": 12.97,
+                "top_down_percentile": 27.53
+            },
+            "11": {
+                "percentage": 14.62,
+                "top_down_percentile": 42.15
+            },
+            "10": {
+                "percentage": 16.08,
+                "top_down_percentile": 58.23
+            },
+            "9": {
+                "percentage": 13.52,
+                "top_down_percentile": 71.75
+            },
+            "8": {
+                "percentage": 10.24,
+                "top_down_percentile": 81.99
+            },
+            "7": {
+                "percentage": 7.6,
+                "top_down_percentile": 89.59
+            },
+            "6": {
+                "percentage": 4.61,
+                "top_down_percentile": 94.2
+            },
+            "5": {
+                "percentage": 3.55,
+                "top_down_percentile": 97.75
+            },
+            "4": {
+                "percentage": 1.74,
+                "top_down_percentile": 99.49
+            },
+            "3": {
+                "percentage": 0.43,
+                "top_down_percentile": 99.92
+            },
+            "2": {
+                "percentage": 0.05,
+                "top_down_percentile": 99.97
+            },
+            "1": {
+                "percentage": 0.0,
+                "top_down_percentile": 99.97
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 99.98
+            }
+        },
+        "自然": {
+            "15": {
+                "percentage": 2.99,
+                "top_down_percentile": 2.99
+            },
+            "14": {
+                "percentage": 5.61,
+                "top_down_percentile": 8.6
+            },
+            "13": {
+                "percentage": 8.06,
+                "top_down_percentile": 16.66
+            },
+            "12": {
+                "percentage": 10.07,
+                "top_down_percentile": 26.73
+            },
+            "11": {
+                "percentage": 11.01,
+                "top_down_percentile": 37.74
+            },
+            "10": {
+                "percentage": 11.27,
+                "top_down_percentile": 49.01
+            },
+            "9": {
+                "percentage": 10.17,
+                "top_down_percentile": 59.18
+            },
+            "8": {
+                "percentage": 9.16,
+                "top_down_percentile": 68.34
+            },
+            "7": {
+                "percentage": 8.08,
+                "top_down_percentile": 76.42
+            },
+            "6": {
+                "percentage": 7.46,
+                "top_down_percentile": 83.88
+            },
+            "5": {
+                "percentage": 6.79,
+                "top_down_percentile": 90.67
+            },
+            "4": {
+                "percentage": 5.66,
+                "top_down_percentile": 96.33
+            },
+            "3": {
+                "percentage": 3.14,
+                "top_down_percentile": 99.47
+            },
+            "2": {
+                "percentage": 0.5,
+                "top_down_percentile": 99.97
+            },
+            "1": {
+                "percentage": 0.02,
+                "top_down_percentile": 99.99
+            },
+            "0": {
+                "percentage": 0.01,
+                "top_down_percentile": 100.0
+            }
+        }
+    }
+}

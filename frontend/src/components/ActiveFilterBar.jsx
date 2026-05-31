@@ -1,5 +1,9 @@
 import { useMemo } from 'react';
-import { FILTER_CHIP, PRESENCE_FILTER_ALL } from '../lib/constants';
+import {
+  FILTER_CHIP,
+  PRESENCE_FILTER_ALL,
+  QUOTA_FILTER_ALL,
+} from '../lib/constants';
 import { GROUP_ORDER } from '../lib/deptUtils';
 import FilterChip from './FilterChip';
 
@@ -8,6 +12,11 @@ export default function ActiveFilterBar({
   selectedGroupIds,
   selectedSchoolIds,
   schoolOptions,
+  qualFilterActive,
+  referenceYear,
+  quotaFilter,
+  onClearQualFilter,
+  onClearQuotaFilter,
   onClearYear,
   onRemoveGroup,
   onRemoveSchool,
@@ -26,7 +35,9 @@ export default function ActiveFilterBar({
   const hasFilters =
     presenceYear !== PRESENCE_FILTER_ALL ||
     groupChips.length > 0 ||
-    schoolChips.length > 0;
+    schoolChips.length > 0 ||
+    qualFilterActive ||
+    quotaFilter !== QUOTA_FILTER_ALL;
 
   if (!hasFilters) return null;
 
@@ -58,6 +69,20 @@ export default function ActiveFilterBar({
               onRemove={() => onRemoveSchool(schoolId)}
             />
           ))}
+          {qualFilterActive && (
+            <FilterChip
+              label={`${referenceYear} 檢定篩選`}
+              chipClass={FILTER_CHIP.qual}
+              onRemove={onClearQualFilter}
+            />
+          )}
+          {quotaFilter !== QUOTA_FILTER_ALL && (
+            <FilterChip
+              label={quotaFilter}
+              chipClass={FILTER_CHIP.quota}
+              onRemove={onClearQuotaFilter}
+            />
+          )}
         </div>
       </div>
       <button

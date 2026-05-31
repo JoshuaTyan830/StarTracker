@@ -132,6 +132,7 @@ export default function TrendLineChart({
   lineColor,
   className = '',
   wide = false,
+  flat = false,
   fillWidth = false,
   embedded = false,
   hidePointLabels = false,
@@ -146,16 +147,20 @@ export default function TrendLineChart({
   const width = fillWidth
     ? Math.max(720, yearSpan * 72)
     : wide
-      ? 420
+      ? flat
+        ? 370
+        : 420
       : 320;
   const isCompareChart = legendLarge && fillWidth && embedded;
-  const height = fillWidth ? 300 : wide ? 220 : 200;
+  const height = fillWidth ? 300 : wide ? (flat ? 168 : 220) : 200;
   const padding = isCompareChart
     ? { top: 28, right: 28, bottom: 34, left: 28 }
     : fillWidth
       ? { top: 40, right: 28, bottom: 36, left: 28 }
       : wide
-        ? { top: 36, right: 52, bottom: 32, left: 52 }
+        ? flat
+          ? { top: 22, right: 28, bottom: 38, left: 28 }
+          : { top: 36, right: 52, bottom: 32, left: 52 }
         : { top: 32, right: 28, bottom: 28, left: 28 };
 
   const yRange = hasData ? getGlobalYRange(series, (p) => p.value) : null;
@@ -164,7 +169,9 @@ export default function TrendLineChart({
   // 比對頁：繪圖區與年份分開，年份固定在 SVG 底部留白帶內
   const yearLabelY = isCompareChart
     ? height - 11
-    : height - (legendLarge ? 8 : 10);
+    : flat && wide
+      ? height - 5
+      : height - (legendLarge ? 8 : 10);
   const innerW = width - padding.left - padding.right;
   const yearAxisX = (i) =>
     allYears.length === 1
@@ -173,7 +180,9 @@ export default function TrendLineChart({
 
   const shellClass = embedded
     ? `flex flex-col flex-1 min-h-0 ${className}`
-    : `bg-white rounded-xl border border-gray-200/80 shadow-sm px-5 py-4 flex flex-col flex-1 min-h-0 ${className}`;
+    : `bg-white rounded-xl border border-gray-200/80 shadow-sm ${
+        flat && wide ? 'px-3 py-3' : 'px-5 py-4'
+      } flex flex-col flex-1 min-h-0 ${className}`;
 
   if (!hasData) {
     return (
@@ -191,7 +200,13 @@ export default function TrendLineChart({
   return (
     <div className={shellClass}>
       {title && !embedded && (
-        <h4 className="text-sm font-bold text-gray-800 mb-3 shrink-0">{title}</h4>
+        <h4
+          className={`font-bold text-gray-800 shrink-0 ${
+            flat && wide ? 'text-sm mb-2' : 'text-sm mb-3'
+          }`}
+        >
+          {title}
+        </h4>
       )}
       <div
         className={`flex items-stretch min-h-[120px] ${
@@ -202,12 +217,14 @@ export default function TrendLineChart({
       >
         <svg
           viewBox={`0 0 ${width} ${height}`}
-          className={`w-full ${
+          className={`${
+            flat && wide ? 'w-full max-w-[370px] mx-auto' : 'w-full'
+          } ${
             embedded && fillWidth
               ? isCompareChart
                 ? 'h-full min-h-0 block'
                 : 'h-full min-h-[14rem] block'
-              : `block ${fillWidth ? '' : 'max-h-[220px]'}`
+              : `block ${fillWidth ? '' : flat && wide ? 'max-h-[168px]' : 'max-h-[220px]'}`
           }`}
           style={
             fillWidth && !embedded

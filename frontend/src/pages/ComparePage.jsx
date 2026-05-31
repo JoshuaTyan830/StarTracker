@@ -11,6 +11,7 @@ import {
 import { buildRankSeriesForRound } from '../lib/historyUtils';
 import { compareColor } from '../lib/compareColors';
 import { fetchYearData } from '../lib/starDataApi';
+import { useGsatStats } from '../hooks/useGsatStats';
 import CompareSidebar from '../components/compare/CompareSidebar';
 import CompareChartPanel from '../components/compare/CompareChartPanel';
 import ComparePickerModal from '../components/compare/ComparePickerModal';
@@ -36,6 +37,7 @@ export default function ComparePage({ starData, compare }) {
   } = starData;
 
   const { items, remove, add, canAdd } = compare;
+  const { stats: gsatStats } = useGsatStats();
 
   useEffect(() => {
     const anchors = items.map((i) => i.anchor);
@@ -168,7 +170,7 @@ export default function ComparePage({ starData, compare }) {
   return (
     <div className={`${PAGE_SHELL_COMPARE} py-4`}>
       <header className="mb-4">
-        <h1 className="text-2xl font-bold text-blue-900">校系比對</h1>
+        <h1 className="text-2xl font-bold text-gray-900">校系比對</h1>
         <p className="text-gray-600 text-sm mt-0.5">
           並列比較多個校系歷年在校學業門檻與分發比序結果
         </p>
@@ -234,6 +236,7 @@ export default function ComparePage({ starData, compare }) {
           yearCache={yearCache}
           compare={compare}
           onClose={() => setDetailAnchor(null)}
+          gsatStats={gsatStats}
         />
       )}
 

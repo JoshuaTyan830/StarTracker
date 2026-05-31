@@ -11,9 +11,10 @@ export default function DeptTable({
   availableYears,
   referenceYear,
   isLoadingInitial,
-  uniqueFilteredCount,
+  resultCount,
   loadedYearCount,
   isBackgroundLoading,
+  qualFilterActive,
   onSelectEntry,
   onToggleCompare,
   compareKeys,
@@ -29,7 +30,9 @@ export default function DeptTable({
         <span>
           {isLoadingInitial
             ? `載入 ${referenceYear} 學年度資料中...`
-            : `找到 ${uniqueFilteredCount} 筆校系`}
+            : `找到 ${resultCount} 筆校系${
+                qualFilterActive ? '（已套用檢定篩選）' : ''
+              }`}
         </span>
         <span className="text-xs text-gray-400 font-normal">
           {isBackgroundLoading

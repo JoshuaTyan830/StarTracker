@@ -1,15 +1,21 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import ActiveFilterBar from '../components/ActiveFilterBar';
 import DeptTable from '../components/DeptTable';
 import FilterModal from '../components/FilterModal';
 import HistoryModal from '../components/HistoryModal';
-import { PAGE_SHELL_HOME, PRESENCE_FILTER_ALL } from '../lib/constants';
+import ScoreInputPanel from '../components/ScoreInputPanel';
+import {
+  PAGE_SHELL_HOME,
+  PRESENCE_FILTER_ALL,
+  QUOTA_FILTER_ALL,
+  QUOTA_FILTER_EXTRA,
+  QUOTA_FILTER_REGULAR,
+} from '../lib/constants';
 import {
   buildDepartmentIndex,
   buildGroupOptions,
   buildSchoolNameRegistry,
   buildSchoolOptionsFromIndex,
-  countUniqueDepartments,
   deptIndexKey,
   findDeptInYear,
   getDisplayDeptForYear,
@@ -17,6 +23,9 @@ import {
 } from '../lib/deptUtils';
 import { fetchYearData } from '../lib/starDataApi';
 import { matchesDepartmentSearch } from '../lib/deptSearchUtils';
+import { passesStage1Requirements } from '../lib/requirementCheck';
+import { hasAnyUserScore, loadUserScores, saveUserScores } from '../lib/userScoresStore';
+import { useGsatStats } from '../hooks/useGsatStats';
 import {
   loadHomeBrowseState,
   saveHomeBrowseState,
@@ -49,8 +58,25 @@ export default function HomePage({ starData, compare }) {
   const [selectedSchoolIds, setSelectedSchoolIds] = useState(
     () => new Set(loadHomeBrowseState()?.selectedSchoolIds ?? [])
   );
+  const [quotaFilter, setQuotaFilter] = useState(() => {
+    const saved = loadHomeBrowseState()?.quotaFilter;
+    return saved === QUOTA_FILTER_REGULAR ||
+      saved === QUOTA_FILTER_EXTRA
+      ? saved
+      : QUOTA_FILTER_ALL;
+  });
   const [showFilterModal, setShowFilterModal] = useState(false);
   const [selectedAnchor, setSelectedAnchor] = useState(null);
+  const [userScores, setUserScores] = useState(() => loadUserScores());
+  const [qualFilterEnabled, setQualFilterEnabled] = useState(
+    () => loadUserScores().qualFilterEnabled
+  );
+
+  const { stats: gsatStats } = useGsatStats();
+
+  useEffect(() => {
+    saveUserScores({ ...userScores, qualFilterEnabled });
+  }, [userScores, qualFilterEnabled]);
 
   useEffect(() => {
     saveHomeBrowseState({
@@ -58,8 +84,9 @@ export default function HomePage({ starData, compare }) {
       presenceYear,
       selectedGroupIds,
       selectedSchoolIds,
+      quotaFilter,
     });
-  }, [searchTerm, presenceYear, selectedGroupIds, selectedSchoolIds]);
+  }, [searchTerm, presenceYear, selectedGroupIds, selectedSchoolIds, quotaFilter]);
 
   useEffect(() => {
     if (!selectedAnchor) return undefined;
@@ -158,18 +185,36 @@ export default function HomePage({ starData, compare }) {
 
   const unknownGroupPct = manifestStats?.[referenceYear]?.unknown_group_pct ?? 0;
 
+  const qualFilterActive =
+    qualFilterEnabled && hasAnyUserScore(userScores);
+
   const selectedFilterItemCount =
     selectedGroupIds.size +
     selectedSchoolIds.size +
-    (presenceYear !== PRESENCE_FILTER_ALL ? 1 : 0);
+    (presenceYear !== PRESENCE_FILTER_ALL ? 1 : 0) +
+    (qualFilterActive ? 1 : 0) +
+    (quotaFilter !== QUOTA_FILTER_ALL ? 1 : 0);
 
-  const filteredIndex = useMemo(() => {
+  const getDeptForReferenceYear = useCallback(
+    (entry) =>
+      findDeptInYear(yearCache[referenceYear], entry.displayDept) ??
+      getDisplayDeptForYear(entry, referenceYear),
+    [yearCache, referenceYear]
+  );
+
+  const browseFilteredIndex = useMemo(() => {
     const term = searchTerm.trim();
     return departmentIndex.filter((entry) => {
       if (presenceYear !== PRESENCE_FILTER_ALL && !entry.byYear[presenceYear]) {
         return false;
       }
       if (selectedSchoolIds.size > 0 && !selectedSchoolIds.has(entry.school_id)) {
+        return false;
+      }
+      if (quotaFilter === QUOTA_FILTER_REGULAR && entry.is_extra_quota) {
+        return false;
+      }
+      if (quotaFilter === QUOTA_FILTER_EXTRA && !entry.is_extra_quota) {
         return false;
       }
       const dept = entry.displayDept;
@@ -194,13 +239,38 @@ export default function HomePage({ starData, compare }) {
     selectedGroupIds,
     presenceYear,
     selectedSchoolIds,
+    quotaFilter,
   ]);
 
-  const uniqueFilteredCount = useMemo(
-    () =>
-      countUniqueDepartments(filteredIndex.map((entry) => entry.displayDept)),
-    [filteredIndex]
-  );
+  const qualPassCount = useMemo(() => {
+    if (!qualFilterActive) return 0;
+    return browseFilteredIndex.filter((entry) => {
+      const dept = getDeptForReferenceYear(entry);
+      return dept && passesStage1Requirements(dept, userScores);
+    }).length;
+  }, [
+    browseFilteredIndex,
+    qualFilterActive,
+    userScores,
+    getDeptForReferenceYear,
+  ]);
+
+  const filteredIndex = useMemo(() => {
+    if (!qualFilterActive) {
+      return browseFilteredIndex;
+    }
+    return browseFilteredIndex.filter((entry) => {
+      const dept = getDeptForReferenceYear(entry);
+      return dept && passesStage1Requirements(dept, userScores);
+    });
+  }, [
+    browseFilteredIndex,
+    qualFilterActive,
+    userScores,
+    getDeptForReferenceYear,
+  ]);
+
+  const resultCount = filteredIndex.length;
 
   const historicalData = useMemo(
     () => getHistoricalData(yearCache, availableYears, selectedAnchor),
@@ -242,7 +312,11 @@ export default function HomePage({ starData, compare }) {
   return (
     <div className={`${PAGE_SHELL_HOME} py-8`}>
       <div className="mb-8">
-        <p className="text-gray-600 font-medium">繁星校系資料庫 · 歷年比序查詢</p>
+        <h1 className="text-2xl font-bold text-gray-900 leading-tight">
+          繁星校系資料庫
+          <span className="font-normal text-gray-400"> · </span>
+          <span className="font-semibold text-gray-600">歷年比序查詢</span>
+        </h1>
         {yearRangeLabel && (
           <p className="text-sm text-gray-400 mt-1">資料涵蓋 {yearRangeLabel} 學年度</p>
         )}
@@ -305,6 +379,11 @@ export default function HomePage({ starData, compare }) {
           selectedGroupIds={selectedGroupIds}
           selectedSchoolIds={selectedSchoolIds}
           schoolOptions={schoolOptions}
+          qualFilterActive={qualFilterActive}
+          referenceYear={referenceYear}
+          onClearQualFilter={() => setQualFilterEnabled(false)}
+          quotaFilter={quotaFilter}
+          onClearQuotaFilter={() => setQuotaFilter(QUOTA_FILTER_ALL)}
           onClearYear={() => setPresenceYear(PRESENCE_FILTER_ALL)}
           onRemoveGroup={(group) =>
             setSelectedGroupIds((prev) => {
@@ -324,7 +403,24 @@ export default function HomePage({ starData, compare }) {
             setSelectedGroupIds(new Set());
             setSelectedSchoolIds(new Set());
             setPresenceYear(PRESENCE_FILTER_ALL);
+            setQualFilterEnabled(false);
+            setQuotaFilter(QUOTA_FILTER_ALL);
           }}
+          quotaFilter={quotaFilter}
+          onClearQuotaFilter={() => setQuotaFilter(QUOTA_FILTER_ALL)}
+        />
+      </div>
+
+      <div className="mb-6">
+        <ScoreInputPanel
+          userScores={userScores}
+          onChange={setUserScores}
+          qualFilterEnabled={qualFilterEnabled}
+          onQualFilterChange={setQualFilterEnabled}
+          referenceYear={referenceYear}
+          passCount={qualPassCount}
+          totalCount={browseFilteredIndex.length}
+          qualFilterActive={qualFilterActive}
         />
       </div>
 
@@ -339,9 +435,10 @@ export default function HomePage({ starData, compare }) {
         availableYears={availableYears}
         referenceYear={referenceYear}
         isLoadingInitial={isLoadingInitial}
-        uniqueFilteredCount={uniqueFilteredCount}
+        resultCount={resultCount}
         loadedYearCount={loadedYearCount}
         isBackgroundLoading={isBackgroundLoading}
+        qualFilterActive={qualFilterActive}
         onSelectEntry={setSelectedAnchor}
         onToggleCompare={(anchor) => compare.toggle(anchor)}
         compareKeys={compareKeys}
@@ -383,7 +480,11 @@ export default function HomePage({ starData, compare }) {
             setSelectedGroupIds(new Set());
             setSelectedSchoolIds(new Set());
             setPresenceYear(PRESENCE_FILTER_ALL);
+            setQualFilterEnabled(false);
+            setQuotaFilter(QUOTA_FILTER_ALL);
           }}
+          quotaFilter={quotaFilter}
+          onQuotaFilterChange={setQuotaFilter}
           selectedFilterItemCount={selectedFilterItemCount}
         />
       )}
@@ -399,6 +500,8 @@ export default function HomePage({ starData, compare }) {
           yearCache={yearCache}
           compare={compare}
           onClose={() => setSelectedAnchor(null)}
+          gsatStats={gsatStats}
+          userScores={userScores}
         />
       )}
     </div>

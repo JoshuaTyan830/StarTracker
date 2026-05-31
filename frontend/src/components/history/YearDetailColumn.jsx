@@ -1,15 +1,19 @@
+import { useMemo } from 'react';
 import {
   compactCriteriaRows,
   compactPracticalRows,
   compactRequirementRows,
 } from '../../lib/historyUtils';
 import { requirementLabelBadgeClass } from '../../lib/compareRequirementsUtils';
+import { buildEquivalentItem } from '../../lib/gsatConversion';
+import { evaluateStage1Requirements } from '../../lib/requirementCheck';
 import { getAdmittedTotal, getQuota } from '../../lib/deptUtils';
 
 const SECTION_TITLE =
   'font-bold text-gray-600 mb-1.5 text-xs tracking-wide';
 const CELL = 'px-2 py-1.5 text-[13px]';
 const CELL_VALUE = `${CELL} text-gray-700 font-medium leading-snug`;
+const REQ_ROW_HEIGHT = 'h-[30px]';
 
 export default function YearDetailColumn({
   year,
@@ -17,8 +21,14 @@ export default function YearDetailColumn({
   anchorDeptId,
   showPracticalSection,
   requirementsMinHeightPx,
+  referenceYear,
+  gsatStats,
+  maxReqRowCount = 0,
+  referenceRequirements = [],
+  userScores,
 }) {
   const requirements = compactRequirementRows(data.requirements);
+  const rawRequirements = data.requirements ?? [];
   const practicals = compactPracticalRows(data.practical_reqs);
   const criteria = compactCriteriaRows(data.criteria);
   const round1Admitted = data.admitted_round1 ?? data.round1_admitted ?? '-';
@@ -29,11 +39,67 @@ export default function YearDetailColumn({
   const round2Header =
     round2Admitted !== '-' ? `二輪（${round2Admitted}）` : '二輪';
 
+  const padRowCount = Math.max(0, maxReqRowCount - requirements.length);
+
+  const equivBySubject = useMemo(() => {
+    const map = new Map();
+    if (!gsatStats || !referenceYear || String(year) === String(referenceYear)) {
+      return map;
+    }
+    for (const row of requirements) {
+      const raw = rawRequirements.find((r) => r.subject === row.subject);
+      const minLevel =
+        raw?.min_level ?? raw?.score?.replace?.(/[^\d]/g, '');
+      if (!minLevel) continue;
+      const item = buildEquivalentItem(
+        gsatStats,
+        year,
+        referenceYear,
+        row.subject,
+        Number(minLevel),
+        referenceRequirements
+      );
+      if (item) map.set(row.subject, item);
+    }
+    return map;
+  }, [
+    gsatStats,
+    referenceYear,
+    year,
+    requirements,
+    rawRequirements,
+    referenceRequirements,
+  ]);
+
+  const stage1Pass = useMemo(
+    () =>
+      evaluateStage1Requirements(data, userScores, {
+        year,
+        referenceYear,
+        gsatStats,
+        referenceRequirements,
+      }),
+    [data, userScores, year, referenceYear, gsatStats, referenceRequirements]
+  );
+
   return (
     <div className="shrink-0 w-[280px] h-full border-r border-gray-200 last:border-r-0 flex flex-col bg-white">
       <div className="bg-slate-800 text-white px-2.5 py-2.5 shrink-0">
-        <div className="flex items-baseline justify-between gap-2 gap-y-0.5 flex-wrap">
-          <span className="font-bold text-base leading-tight">{year} 學年</span>
+        <div className="flex items-start justify-between gap-2 gap-y-1 flex-wrap">
+          <div className="flex items-center gap-2 min-w-0 flex-wrap">
+            <span className="font-bold text-base leading-tight">{year} 學年</span>
+            {stage1Pass !== null && (
+              <span
+                className={`text-xs font-bold px-2 py-0.5 rounded-md shrink-0 ${
+                  stage1Pass
+                    ? 'bg-green-600 text-green-200'
+                    : 'bg-red-600 text-red-200'
+                }`}
+              >
+                {stage1Pass ? '通過' : '不通過'}
+              </span>
+            )}
+          </div>
           <span className="text-[13px] text-slate-200 font-normal whitespace-nowrap">
             招生名額 {getQuota(data)}
             <span className="text-slate-500 mx-1">·</span>
@@ -60,27 +126,57 @@ export default function YearDetailColumn({
         <section>
           <div className={SECTION_TITLE}>學測、英聽檢定</div>
           {requirements.length > 0 ? (
-            <table className="w-full border border-gray-200 border-collapse">
-              <tbody>
-                {requirements.map((row) => (
-                  <tr
-                    key={row.subject}
-                    className="border-b border-gray-100 last:border-0"
-                  >
-                    <td
-                      className={`${CELL} font-semibold text-gray-800 w-[3.35rem] border-r border-gray-100 bg-gray-50/90`}
-                    >
-                      {row.subject}
-                    </td>
-                    <td className={CELL_VALUE}>
-                      <span className={requirementLabelBadgeClass(row.label, row.subject)}>
-                        {row.label}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <>
+              <table className="w-full border border-gray-200 border-collapse">
+                <tbody>
+                  {requirements.map((row, idx) => {
+                    const equiv = equivBySubject.get(row.subject);
+                    const isLast = idx === requirements.length - 1;
+                    return (
+                      <tr
+                        key={row.subject}
+                        className={`${REQ_ROW_HEIGHT} ${
+                          isLast ? '' : 'border-b border-gray-100'
+                        }`}
+                      >
+                        <td
+                          className={`${CELL} font-semibold text-gray-800 w-[3.35rem] border-r border-gray-100 bg-gray-50/90 whitespace-nowrap leading-tight`}
+                        >
+                          {row.subject}
+                        </td>
+                        <td className={`${CELL_VALUE} align-middle`}>
+                          <span className="inline-flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+                            <span
+                              className={requirementLabelBadgeClass(
+                                row.label,
+                                row.subject
+                              )}
+                            >
+                              {row.label}
+                            </span>
+                            {equiv && (
+                              <span
+                                className="text-[10px] text-violet-600 font-medium whitespace-nowrap"
+                                title={`${year} 學年檢定約 ${equiv.originalLevel} 級分，換算至 ${referenceYear} 學年約 ${equiv.level} 級分`}
+                              >
+                                ≈{referenceYear}年的{equiv.level}級分
+                              </span>
+                            )}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              {padRowCount > 0 && (
+                <div
+                  style={{ height: padRowCount * 30 }}
+                  aria-hidden
+                  className="shrink-0"
+                />
+              )}
+            </>
           ) : (
             <p className="text-gray-400 text-[13px] px-0.5">—</p>
           )}
@@ -156,7 +252,7 @@ export default function YearDetailColumn({
                       <td className={`${CELL} text-center text-gray-400 font-mono`}>
                         {row.order}
                       </td>
-                      <td className={`${CELL} font-medium text-gray-800 leading-tight`}>
+                      <td className={`${CELL} font-medium text-gray-800 leading-tight break-words`}>
                         {row.item}
                       </td>
                       <td

@@ -158,17 +158,24 @@ export function trimCriteriaToLastUsed(criteria) {
 }
 
 /** 各學年檢定列數上限，用於單一科系頁對齊分發比序起始高度 */
-export function getRequirementsBlockMinHeightPx(
-  historicalData,
-  showPracticalSection
-) {
+export function getMaxRequirementRowCount(historicalData) {
   let maxReq = 0;
-  let maxPrac = 0;
   for (const { data } of historicalData) {
     maxReq = Math.max(
       maxReq,
       compactRequirementRows(data?.requirements).length
     );
+  }
+  return maxReq;
+}
+
+export function getRequirementsBlockMinHeightPx(
+  historicalData,
+  showPracticalSection
+) {
+  let maxReq = getMaxRequirementRowCount(historicalData);
+  let maxPrac = 0;
+  for (const { data } of historicalData) {
     if (showPracticalSection) {
       maxPrac = Math.max(
         maxPrac,
